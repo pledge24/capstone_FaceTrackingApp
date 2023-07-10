@@ -9,7 +9,7 @@ using UnityEngine.XR.ARKit;
 
 public class ARComponent : MonoBehaviour
 {
-    enum JointIndices3D
+    public enum JointIndices3D
     {
         Invalid = -1,
         Root = 0, // parent: <none> [-1]
@@ -104,6 +104,7 @@ public class ARComponent : MonoBehaviour
         RightHandThumb2 = 89, // parent: RightHandThumb1 [88]
         RightHandThumbEnd = 90, // parent: RightHandThumb2 [89]
     }
+    private NativeArray<XRHumanBodyJoint> joints;
     GameObject skeleton;
     [SerializeField] private ARHumanBodyManager hbm;
     private Dictionary<JointIndices3D, Transform> bodyJoints;
@@ -117,6 +118,11 @@ public class ARComponent : MonoBehaviour
 
     private Vector3 headposition = Vector3.one;
     private Vector3 headrotation = Vector3.zero;
+
+    public NativeArray<XRHumanBodyJoint> Joints {
+        get { return joints; }
+        set { joints = value; }
+    }
 
     public Vector3 HeadPosition {
         get { return headposition; }
@@ -171,7 +177,8 @@ public class ARComponent : MonoBehaviour
         if (body == null) return;
         if (body.transform == null) return;
         InitializeObejcts(body.transform);
-        NativeArray<XRHumanBodyJoint> joints = body.joints;
+        joints = body.joints;
+
 
         foreach (KeyValuePair<JointIndices3D, Transform> item in bodyJoints)
         {

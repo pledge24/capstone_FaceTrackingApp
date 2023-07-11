@@ -178,14 +178,13 @@ public class ARComponent : MonoBehaviour
         if (body.transform == null) return;
         InitializeObejcts(body.transform);
         joints = body.joints;
-
+        headposition = body.transform.position;
 
         foreach (KeyValuePair<JointIndices3D, Transform> item in bodyJoints)
         {
             UpdateJointTransform(item.Value, joints[(int)item.Key]);
         }
-        headposition = (joints[(int)JointIndices3D.Hips].anchorPose.position);
-        headrotation = joints[(int)JointIndices3D.Hips].anchorPose.rotation.eulerAngles;
+        
         for (int i = 0; i < lineRenderers.Length; i++)
         {
             Vector3[] positions = new Vector3[lineRendererTransforms[i].Length];

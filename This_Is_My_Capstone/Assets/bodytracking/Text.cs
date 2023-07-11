@@ -18,7 +18,12 @@ public class Text : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    { 
+    {
+        Vector3 bodypos = data.GetComponent<ARComponent>().HeadPosition;
+        string body = "[BodyPosition] - X: " + string.Format("{0:0.000}", bodypos.x)
+            + "\tY: "  + string.Format("{0:0.000}", bodypos.y)
+            + "\tZ: " + string.Format("{0:0.000}", bodypos.z);
+        Debug.Log(body);
         foreach(XRHumanBodyJoint i in data.GetComponent<ARComponent>().Joints)
         {
             if (i.index == (int)ARComponent.JointIndices3D.Head ||
@@ -39,13 +44,13 @@ public class Text : MonoBehaviour
                 string name = System.Enum.GetName(typeof(ARComponent.JointIndices3D), i.index);
                 Vector3 pos = i.anchorPose.position;
                 Vector3 rot = i.anchorPose.rotation.eulerAngles;
-                string type = "[" + name + "] -";// + string.Format("{0:0.000, 1:0.000, 2:0.000}", pos) + "\t"
+                string type = "[" + name + " Rotation] -";// + string.Format("{0:0.000, 1:0.000, 2:0.000}", pos) + "\t"
                                                  //+ string.Format("{0:0.000, 1:0.000, 2:0.000}", rot);
                 string posT = "X: " + string.Format("{0:0.000}", pos.x) + "\tY: " + string.Format("{0:0.000}", pos.y)
                 + "\tZ: " + string.Format("{0:0.000}", pos.x);
                 string rotT = "RX: " + string.Format("{0:0.000}", rot.x) + "\tRY: " + string.Format("{0:0.000}", rot.y)
                     + "\tRZ: " + string.Format("{0:0.000}", rot.z);
-                Debug.Log(type + posT + "\t" + rotT);
+                Debug.Log(type + "\t" + rotT);
 
             }
             

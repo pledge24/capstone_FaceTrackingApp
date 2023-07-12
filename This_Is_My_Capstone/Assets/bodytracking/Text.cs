@@ -20,10 +20,11 @@ public class Text : MonoBehaviour
     void Update()
     {
         Vector3 bodypos = data.GetComponent<ARComponent>().HeadPosition;
-        string body = "[BodyPosition] - X: " + string.Format("{0:0.000}", bodypos.x)
-            + "\tY: "  + string.Format("{0:0.000}", bodypos.y)
-            + "\tZ: " + string.Format("{0:0.000}", bodypos.z);
-        Debug.Log(body);
+        //[BodyPosition] - 
+        string body = "X: " + string.Format("{0:0.000}", bodypos.x)
+            + "\nY: "  + string.Format("{0:0.000}", bodypos.y)
+            + "\nZ: " + string.Format("{0:0.000}", bodypos.z);
+        txt.text = body;
         foreach(XRHumanBodyJoint i in data.GetComponent<ARComponent>().Joints)
         {
             if (i.index == (int)ARComponent.JointIndices3D.Head ||

@@ -273,6 +273,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   txt: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
   data: {fileID: 0}
@@ -602,6 +603,8 @@ GameObject:
 >>>>>>> Stashed changes
 =======
 >>>>>>> parent of bd9275f (update some changes)
+=======
+>>>>>>> parent of bd9275f (update some changes)
 --- !u!1 &299304316
 GameObject:
   m_ObjectHideFlags: 0
@@ -865,6 +868,7 @@ MonoBehaviour:
   m_Pose3D: 1
   m_Pose3DScaleEstimation: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
   m_HumanBodyPrefab: {fileID: 1237402283603786, guid: 80cda4bbdfcce418b863249889e9102a, type: 3}
@@ -874,6 +878,9 @@ MonoBehaviour:
 =======
   m_HumanBodyPrefab: {fileID: 94871353}
 >>>>>>> Stashed changes
+=======
+  m_HumanBodyPrefab: {fileID: 1237402283603786, guid: 80cda4bbdfcce418b863249889e9102a, type: 3}
+>>>>>>> parent of bd9275f (update some changes)
 =======
   m_HumanBodyPrefab: {fileID: 1237402283603786, guid: 80cda4bbdfcce418b863249889e9102a, type: 3}
 >>>>>>> parent of bd9275f (update some changes)
@@ -1114,6 +1121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 =======
@@ -1211,6 +1219,8 @@ MonoBehaviour:
   - {fileID: 94871363}
   - {fileID: 94871362}
 >>>>>>> Stashed changes
+=======
+>>>>>>> parent of bd9275f (update some changes)
 =======
 >>>>>>> parent of bd9275f (update some changes)
   hbm: {fileID: 1241796168}

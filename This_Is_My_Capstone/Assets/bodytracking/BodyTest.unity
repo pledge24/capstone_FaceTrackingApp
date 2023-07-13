@@ -271,15 +271,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5056bf83061f741bf8b4927c3fc1c30f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  txt: {fileID: 0}
-<<<<<<< HEAD
-<<<<<<< HEAD
 <<<<<<< Updated upstream
+  txt: {fileID: 0}
 =======
   data: {fileID: 0}
   txt: {fileID: 0}
-=======
->>>>>>> Stashed changes
 --- !u!1001 &94871352
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -597,14 +593,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 100228, guid: e9672178c4116bc478cf5a6bc7c2952b, type: 3}
   m_PrefabInstance: {fileID: 94871352}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< Updated upstream
 >>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> parent of bd9275f (update some changes)
-=======
->>>>>>> parent of bd9275f (update some changes)
 --- !u!1 &299304316
 GameObject:
   m_ObjectHideFlags: 0
@@ -867,23 +856,11 @@ MonoBehaviour:
   m_Pose2D: 1
   m_Pose3D: 1
   m_Pose3DScaleEstimation: 0
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< Updated upstream
 <<<<<<< Updated upstream
   m_HumanBodyPrefab: {fileID: 1237402283603786, guid: 80cda4bbdfcce418b863249889e9102a, type: 3}
 =======
   m_HumanBodyPrefab: {fileID: 94871353}
 >>>>>>> Stashed changes
-=======
-  m_HumanBodyPrefab: {fileID: 94871353}
->>>>>>> Stashed changes
-=======
-  m_HumanBodyPrefab: {fileID: 1237402283603786, guid: 80cda4bbdfcce418b863249889e9102a, type: 3}
->>>>>>> parent of bd9275f (update some changes)
-=======
-  m_HumanBodyPrefab: {fileID: 1237402283603786, guid: 80cda4bbdfcce418b863249889e9102a, type: 3}
->>>>>>> parent of bd9275f (update some changes)
 --- !u!114 &1241796169
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1120,11 +1097,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8175f46094b3b4bfd9bdcaabf5699ed8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< HEAD
-<<<<<<< HEAD
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
+  hbm: {fileID: 1241796168}
+  jointPrefab: {fileID: 1237402283603786, guid: 80cda4bbdfcce418b863249889e9102a, type: 3}
+  lineRendererPrefab: {fileID: 7279206143794138952, guid: a2d4cf6f5a8f6420f9661dec5ea0b16c, type: 3}
 =======
+  skeleton: {fileID: 0}
   model:
   - {fileID: 94871353}
   - {fileID: 94871404}
@@ -1218,14 +1196,14 @@ MonoBehaviour:
   - {fileID: 94871364}
   - {fileID: 94871363}
   - {fileID: 94871362}
->>>>>>> Stashed changes
-=======
->>>>>>> parent of bd9275f (update some changes)
-=======
->>>>>>> parent of bd9275f (update some changes)
   hbm: {fileID: 1241796168}
   jointPrefab: {fileID: 1237402283603786, guid: 80cda4bbdfcce418b863249889e9102a, type: 3}
   lineRendererPrefab: {fileID: 7279206143794138952, guid: a2d4cf6f5a8f6420f9661dec5ea0b16c, type: 3}
+  lineRenderers: []
+  lrt: []
+  headposition: {x: 1, y: 1, z: 1}
+  headrotation: {x: 0, y: 0, z: 0}
+>>>>>>> Stashed changes
   text: {fileID: 668023}
 --- !u!4 &2070782550
 Transform:

@@ -271,8 +271,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5056bf83061f741bf8b4927c3fc1c30f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< Updated upstream
   txt: {fileID: 0}
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
   data: {fileID: 0}
@@ -600,6 +600,8 @@ GameObject:
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> parent of bd9275f (update some changes)
 --- !u!1 &299304316
 GameObject:
   m_ObjectHideFlags: 0
@@ -862,6 +864,7 @@ MonoBehaviour:
   m_Pose2D: 1
   m_Pose3D: 1
   m_Pose3DScaleEstimation: 0
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
   m_HumanBodyPrefab: {fileID: 1237402283603786, guid: 80cda4bbdfcce418b863249889e9102a, type: 3}
@@ -871,6 +874,9 @@ MonoBehaviour:
 =======
   m_HumanBodyPrefab: {fileID: 94871353}
 >>>>>>> Stashed changes
+=======
+  m_HumanBodyPrefab: {fileID: 1237402283603786, guid: 80cda4bbdfcce418b863249889e9102a, type: 3}
+>>>>>>> parent of bd9275f (update some changes)
 --- !u!114 &1241796169
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1107,6 +1113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8175f46094b3b4bfd9bdcaabf5699ed8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 =======
@@ -1204,112 +1211,11 @@ MonoBehaviour:
   - {fileID: 94871363}
   - {fileID: 94871362}
 >>>>>>> Stashed changes
-  hbm: {fileID: 1241796168}
-  jointPrefab: {fileID: 1237402283603786, guid: 80cda4bbdfcce418b863249889e9102a, type: 3}
-  lineRendererPrefab: {fileID: 7279206143794138952, guid: a2d4cf6f5a8f6420f9661dec5ea0b16c, type: 3}
 =======
-  skeleton: {fileID: 0}
-  model:
-  - {fileID: 94871353}
-  - {fileID: 94871404}
-  - {fileID: 94871403}
-  - {fileID: 94871361}
-  - {fileID: 94871360}
-  - {fileID: 94871359}
-  - {fileID: 94871358}
-  - {fileID: 0}
-  - {fileID: 94871357}
-  - {fileID: 94871356}
-  - {fileID: 94871355}
-  - {fileID: 94871354}
-  - {fileID: 0}
-  - {fileID: 94871402}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 94871402}
-  - {fileID: 94871399}
-  - {fileID: 94871398}
-  - {fileID: 94871397}
-  - {fileID: 94871396}
-  - {fileID: 0}
-  - {fileID: 94871395}
-  - {fileID: 94871394}
-  - {fileID: 94871393}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 94871392}
-  - {fileID: 94871391}
-  - {fileID: 94871390}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 94871389}
-  - {fileID: 94871388}
-  - {fileID: 94871387}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 94871386}
-  - {fileID: 94871385}
-  - {fileID: 94871384}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 94871383}
-  - {fileID: 94871382}
-  - {fileID: 94871381}
-  - {fileID: 94871401}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 94871401}
-  - {fileID: 94871400}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 94871380}
-  - {fileID: 94871379}
-  - {fileID: 94871378}
-  - {fileID: 94871377}
-  - {fileID: 0}
-  - {fileID: 94871376}
-  - {fileID: 94871375}
-  - {fileID: 94871374}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 94871373}
-  - {fileID: 94871372}
-  - {fileID: 94871371}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 94871370}
-  - {fileID: 94871369}
-  - {fileID: 94871368}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 94871367}
-  - {fileID: 94871366}
-  - {fileID: 94871365}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 94871364}
-  - {fileID: 94871363}
-  - {fileID: 94871362}
+>>>>>>> parent of bd9275f (update some changes)
   hbm: {fileID: 1241796168}
   jointPrefab: {fileID: 1237402283603786, guid: 80cda4bbdfcce418b863249889e9102a, type: 3}
   lineRendererPrefab: {fileID: 7279206143794138952, guid: a2d4cf6f5a8f6420f9661dec5ea0b16c, type: 3}
-  lineRenderers: []
-  lrt: []
-  headposition: {x: 1, y: 1, z: 1}
-  headrotation: {x: 0, y: 0, z: 0}
->>>>>>> Stashed changes
   text: {fileID: 668023}
 --- !u!4 &2070782550
 Transform:

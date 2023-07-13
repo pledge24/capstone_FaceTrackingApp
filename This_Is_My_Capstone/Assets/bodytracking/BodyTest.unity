@@ -273,9 +273,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
 <<<<<<< Updated upstream
   txt: {fileID: 0}
+<<<<<<< Updated upstream
 =======
   data: {fileID: 0}
   txt: {fileID: 0}
+=======
+>>>>>>> Stashed changes
 --- !u!1001 &94871352
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -593,6 +596,9 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 100228, guid: e9672178c4116bc478cf5a6bc7c2952b, type: 3}
   m_PrefabInstance: {fileID: 94871352}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 --- !u!1 &299304316
 GameObject:
@@ -857,7 +863,11 @@ MonoBehaviour:
   m_Pose3D: 1
   m_Pose3DScaleEstimation: 0
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   m_HumanBodyPrefab: {fileID: 1237402283603786, guid: 80cda4bbdfcce418b863249889e9102a, type: 3}
+=======
+  m_HumanBodyPrefab: {fileID: 94871353}
+>>>>>>> Stashed changes
 =======
   m_HumanBodyPrefab: {fileID: 94871353}
 >>>>>>> Stashed changes
@@ -1098,6 +1108,102 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+  model:
+  - {fileID: 94871353}
+  - {fileID: 94871404}
+  - {fileID: 94871403}
+  - {fileID: 94871361}
+  - {fileID: 94871360}
+  - {fileID: 94871359}
+  - {fileID: 94871358}
+  - {fileID: 0}
+  - {fileID: 94871357}
+  - {fileID: 94871356}
+  - {fileID: 94871355}
+  - {fileID: 94871354}
+  - {fileID: 0}
+  - {fileID: 94871402}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 94871402}
+  - {fileID: 94871399}
+  - {fileID: 94871398}
+  - {fileID: 94871397}
+  - {fileID: 94871396}
+  - {fileID: 0}
+  - {fileID: 94871395}
+  - {fileID: 94871394}
+  - {fileID: 94871393}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 94871392}
+  - {fileID: 94871391}
+  - {fileID: 94871390}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 94871389}
+  - {fileID: 94871388}
+  - {fileID: 94871387}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 94871386}
+  - {fileID: 94871385}
+  - {fileID: 94871384}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 94871383}
+  - {fileID: 94871382}
+  - {fileID: 94871381}
+  - {fileID: 94871401}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 94871401}
+  - {fileID: 94871400}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 94871380}
+  - {fileID: 94871379}
+  - {fileID: 94871378}
+  - {fileID: 94871377}
+  - {fileID: 0}
+  - {fileID: 94871376}
+  - {fileID: 94871375}
+  - {fileID: 94871374}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 94871373}
+  - {fileID: 94871372}
+  - {fileID: 94871371}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 94871370}
+  - {fileID: 94871369}
+  - {fileID: 94871368}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 94871367}
+  - {fileID: 94871366}
+  - {fileID: 94871365}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 94871364}
+  - {fileID: 94871363}
+  - {fileID: 94871362}
+>>>>>>> Stashed changes
   hbm: {fileID: 1241796168}
   jointPrefab: {fileID: 1237402283603786, guid: 80cda4bbdfcce418b863249889e9102a, type: 3}
   lineRendererPrefab: {fileID: 7279206143794138952, guid: a2d4cf6f5a8f6420f9661dec5ea0b16c, type: 3}

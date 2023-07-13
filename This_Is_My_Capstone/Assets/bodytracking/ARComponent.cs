@@ -106,8 +106,10 @@ public class ARComponent : MonoBehaviour
     }
     private NativeArray<XRHumanBodyJoint> joints;
     GameObject skeleton;
+    [SerializeField] private GameObject[] model;
     [SerializeField] private ARHumanBodyManager hbm;
     private Dictionary<JointIndices3D, Transform> bodyJoints;
+    private Dictionary<string, int> prefabChilds;
 
     [SerializeField] private GameObject jointPrefab;
     [SerializeField] private GameObject lineRendererPrefab;
@@ -161,6 +163,7 @@ public class ARComponent : MonoBehaviour
 
     private void OnHumanBodiesChanged(ARHumanBodiesChangedEventArgs args)
     {
+        
         foreach (ARHumanBody humanBody in args.added)
         {
             UpdateBody(humanBody);
@@ -176,7 +179,7 @@ public class ARComponent : MonoBehaviour
         if (jointPrefab == null) return;
         if (body == null) return;
         if (body.transform == null) return;
-        InitializeObejcts(body.transform);
+        //InitializeObejcts(body.transform);
         joints = body.joints;
         headposition = body.transform.position;
 
@@ -184,16 +187,23 @@ public class ARComponent : MonoBehaviour
         {
             UpdateJointTransform(item.Value, joints[(int)item.Key]);
         }
-        
-        for (int i = 0; i < lineRenderers.Length; i++)
+        model[0].transform.position = body.transform.position;
+        foreach(XRHumanBodyJoint i in joints)
         {
-            Vector3[] positions = new Vector3[lineRendererTransforms[i].Length];
-            for(int j = 0; j < lineRendererTransforms[i].Length; j++)
+            if (model[i.index + 1] != null)
             {
-                positions[j] = lineRendererTransforms[i][j].position;
+                model[i.index + 1].transform.rotation = i.anchorPose.rotation;
             }
-            lineRenderers[i].SetPositions(positions);
         }
+        //for (int i = 0; i < lineRenderers.Length; i++)
+        //{
+        //    Vector3[] positions = new Vector3[lineRendererTransforms[i].Length];
+        //    for(int j = 0; j < lineRendererTransforms[i].Length; j++)
+        //    {
+        //       positions[j] = lineRendererTransforms[i][j].position;
+        //    }
+        //    lineRenderers[i].SetPositions(positions);
+        //}
     }
 
     private void InitializeObejcts(Transform bodyT)
@@ -275,6 +285,13 @@ public class ARComponent : MonoBehaviour
     void Start()
     {
         text.GetComponent<TextMesh>().text = "init";
+        //for(int i = 0; i < model.transform.childCount; i++)
+        //{
+        //    Transform temp = model.transform.GetChild(4).GetChild(i);
+         //   
+        //    prefabChilds.Add(model.transform.GetChild(4).GetChild(i).name, i);
+       // }
+
     }
 
     // Update is called once per frame

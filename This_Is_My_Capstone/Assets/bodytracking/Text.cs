@@ -26,22 +26,22 @@ public class Text : MonoBehaviour
         Debug.Log(body);
         foreach(XRHumanBodyJoint i in data.GetComponent<ARComponent>().Joints)
         {
-            if (i.index == (int)ARComponent.JointIndices3D.Head ||
-                i.index == (int)ARComponent.JointIndices3D.Neck1 ||
-                i.index == (int)ARComponent.JointIndices3D.LeftArm ||
-                i.index == (int)ARComponent.JointIndices3D.RightArm ||
-                i.index == (int)ARComponent.JointIndices3D.LeftForearm ||
-                i.index == (int)ARComponent.JointIndices3D.RightForearm ||
-                i.index == (int)ARComponent.JointIndices3D.LeftHand ||
-                i.index == (int)ARComponent.JointIndices3D.RightHand ||
-                i.index == (int)ARComponent.JointIndices3D.LeftUpLeg ||
-                i.index == (int)ARComponent.JointIndices3D.RightUpLeg ||
-                i.index == (int)ARComponent.JointIndices3D.LeftLeg ||
-                i.index == (int)ARComponent.JointIndices3D.RightLeg ||
-                i.index == (int)ARComponent.JointIndices3D.LeftFoot ||
-                i.index == (int)ARComponent.JointIndices3D.RightFoot)
+            if (i.index == (int)BoneController.Joints.Head ||
+                i.index == (int)BoneController.Joints.Neck ||
+                i.index == (int)BoneController.Joints.UpperArm_L ||
+                i.index == (int)BoneController.Joints.UpperArm_R ||
+                i.index == (int)BoneController.Joints.LowerArm_L ||
+                i.index == (int)BoneController.Joints.LowerArm_R ||
+                i.index == (int)BoneController.Joints.Hand_L ||
+                i.index == (int)BoneController.Joints.Hand_R ||
+                i.index == (int)BoneController.Joints.UpperLeg_L ||
+                i.index == (int)BoneController.Joints.UpperLeg_R ||
+                i.index == (int)BoneController.Joints.LowerLeg_L ||
+                i.index == (int)BoneController.Joints.LowerLeg_R ||
+                i.index == (int)BoneController.Joints.Foot_L ||
+                i.index == (int)BoneController.Joints.Foot_R)
             {
-                string name = System.Enum.GetName(typeof(ARComponent.JointIndices3D), i.index);
+                string name = System.Enum.GetName(typeof(BoneController.Joints), i.index);
                 Vector3 pos = i.anchorPose.position;
                 Vector3 rot = i.anchorPose.rotation.eulerAngles;
                 string type = "[" + name + " Rotation] -";// + string.Format("{0:0.000, 1:0.000, 2:0.000}", pos) + "\t"

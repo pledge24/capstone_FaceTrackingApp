@@ -9,7 +9,7 @@ using UnityEngine.XR.ARKit;
 
 public class ARComponent : MonoBehaviour
 {
-    public enum JointIndices3D
+    /*public enum JointIndices3D
     {
         Invalid = -1,
         Root = 0, // parent: <none> [-1]
@@ -103,23 +103,34 @@ public class ARComponent : MonoBehaviour
         RightHandThumb1 = 88, // parent: RightHandThumbStart [87]
         RightHandThumb2 = 89, // parent: RightHandThumb1 [88]
         RightHandThumbEnd = 90, // parent: RightHandThumb2 [89]
-    }
+    }*/
     private NativeArray<XRHumanBodyJoint> joints;
     GameObject skeleton;
-    [SerializeField] private GameObject[] model;
     [SerializeField] private ARHumanBodyManager hbm;
-    private Dictionary<JointIndices3D, Transform> bodyJoints;
-    private Dictionary<string, int> prefabChilds;
+    [SerializeField]
+    [Range(-10.0f, 10.0f)]
+    private float offsetX = 0;
 
+    [SerializeField]
+    [Range(-10.0f, 10.0f)]
+    private float offsetY = 0;
+
+    [SerializeField]
+    [Range(-10.0f, 10.0f)]
+    private float offsetZ= 0;
+
+    private Dictionary<BoneController.Joints, Transform> bodyJoints; 
+    
     [SerializeField] private GameObject jointPrefab;
     [SerializeField] private GameObject lineRendererPrefab;
 
     private LineRenderer[] lineRenderers;
-    private Transform[] lrt;
     private Transform[][] lineRendererTransforms;
 
     private Vector3 headposition = Vector3.one;
     private Vector3 headrotation = Vector3.zero;
+
+    private Dictionary<TrackableId, BoneController> bones = new Dictionary<TrackableId, BoneController>();
 
     public NativeArray<XRHumanBodyJoint> Joints {
         get { return joints; }
@@ -147,8 +158,7 @@ public class ARComponent : MonoBehaviour
         get { return skeleton; }
         set { skeleton = value; }
     }
-
-    Dictionary<TrackableId, BoneController> tracker = new Dictionary<TrackableId, BoneController>();
+ 
     private void OnEnable()
     {
         hbm.humanBodiesChanged += OnHumanBodiesChanged;
@@ -166,15 +176,19 @@ public class ARComponent : MonoBehaviour
         
         foreach (ARHumanBody humanBody in args.added)
         {
-            UpdateBody(humanBody);
+            AddBody(humanBody);
         }
         foreach(ARHumanBody humanBody in args.updated)
         {
             UpdateBody(humanBody);
         }
+        foreach(ARHumanBody humanBody in args.removed)
+        {
+            RemoveBody(humanBody);
+        }
     }
 
-    private void UpdateBody(ARHumanBody body)
+    private void AddBody(ARHumanBody body)
     {
         if (jointPrefab == null) return;
         if (body == null) return;
@@ -182,8 +196,23 @@ public class ARComponent : MonoBehaviour
         //InitializeObejcts(body.transform);
         joints = body.joints;
         headposition = body.transform.position;
+        BoneController controller;
 
-        foreach (KeyValuePair<JointIndices3D, Transform> item in bodyJoints)
+        if(!bones.TryGetValue(body.trackableId, out controller))
+        {
+            var newSkeleton = GameObject.Find("mirai2019_dance");
+
+            newSkeleton.transform.SetParent(body.transform);
+            controller = newSkeleton.GetComponent<BoneController>();
+
+            controller.transform.position += new Vector3(offsetX, offsetY, offsetZ);
+
+            bones.Add(body.trackableId, controller);
+        }
+
+        controller.InitJoints();
+        controller.ApplyBodyPose(body);
+        /*foreach (KeyValuePair<JointIndices3D, Transform> item in bodyJoints)
         {
             UpdateJointTransform(item.Value, joints[(int)item.Key]);
         }
@@ -194,8 +223,8 @@ public class ARComponent : MonoBehaviour
             {
                 model[i.index + 1].transform.rotation = i.anchorPose.rotation;
             }
-        }
-        //for (int i = 0; i < lineRenderers.Length; i++)
+        }*/
+        /*for (int i = 0; i < lineRenderers.Length; i++)
         //{
         //    Vector3[] positions = new Vector3[lineRendererTransforms[i].Length];
         //    for(int j = 0; j < lineRendererTransforms[i].Length; j++)
@@ -203,10 +232,29 @@ public class ARComponent : MonoBehaviour
         //       positions[j] = lineRendererTransforms[i][j].position;
         //    }
         //    lineRenderers[i].SetPositions(positions);
-        //}
+        }*/
     }
 
-    private void InitializeObejcts(Transform bodyT)
+    private void UpdateBody(ARHumanBody body)
+    {
+        BoneController controller;
+        if(bones.TryGetValue(body.trackableId, out controller))
+        {
+            controller.ApplyBodyPose(body);
+        }
+    }
+
+    private void RemoveBody(ARHumanBody body)
+    {
+        BoneController controller;
+        if(bones.TryGetValue(body.trackableId, out controller))
+        {
+            Destroy(controller.gameObject);
+            bones.Remove(body.trackableId);
+        }
+    }
+
+    /*private void InitializeObejcts(Transform bodyT)
     {
         if(bodyJoints == null)
         {
@@ -273,7 +321,7 @@ public class ARComponent : MonoBehaviour
                 lineRenderers[i].positionCount = lineRendererTransforms[i].Length;
             }
         }
-    }
+    }*/
     private void UpdateJointTransform(Transform jointT, XRHumanBodyJoint bodyJoint)
     {
         jointT.localScale = bodyJoint.anchorScale;
@@ -284,14 +332,7 @@ public class ARComponent : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        text.GetComponent<TextMesh>().text = "init";
-        //for(int i = 0; i < model.transform.childCount; i++)
-        //{
-        //    Transform temp = model.transform.GetChild(4).GetChild(i);
-         //   
-        //    prefabChilds.Add(model.transform.GetChild(4).GetChild(i).name, i);
-       // }
-
+       
     }
 
     // Update is called once per frame

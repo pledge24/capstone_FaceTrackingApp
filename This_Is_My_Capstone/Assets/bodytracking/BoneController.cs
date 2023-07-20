@@ -231,21 +231,21 @@ public class BoneController : MonoBehaviour
     // ARKit 측정값 보간
     Dictionary<int, Vector3> arkitOffset = new Dictionary<int, Vector3>()
     {
-        {2, new Vector3(0, 260, 260) },
-        {3, new Vector3(0, 0, 35) },
-        {4, new Vector3(0, 0, 260) },
-        {7, new Vector3(0, 270, 70) },
-        {8, new Vector3(0, 0, 30) },
-        {9, new Vector3(0, 0, 270) },
-        {12, new Vector3(0, 270, 90) },
-        {19, new Vector3(0, 260, 180) },
-        {20, new Vector3(0, 350, 10) },
-        {21, new Vector3(0, 0, 330) },
-        {22, new Vector3(70, 0, 0) },
-        {63, new Vector3(0, 90, 0) },
-        {64, new Vector3(0, 350, 0) },
-        {65, new Vector3(0, 0, 330) },
-        {66, new Vector3(70, 0, 0) }
+        {2, new Vector3(0, 263, 265) },
+        {3, new Vector3(0, 0, 10) },
+        {4, new Vector3(0, 0, 280) },
+        {7, new Vector3(0, 277, 85) },
+        {8, new Vector3(0, 0, 10) },
+        {9, new Vector3(0, 0, 285) },
+        {12, new Vector3(0, 270, 77) },
+        {19, new Vector3(0, 328, 163) },
+        {20, new Vector3(0, 323, 0) },
+        {21, new Vector3(0, 0, 350) },
+        {22, new Vector3(74, 0, 0) },
+        {63, new Vector3(354, 0, 0) },
+        {64, new Vector3(0, 325, 0) },
+        {65, new Vector3(0, 0, 353) },
+        {66, new Vector3(74, 0, 0) }
     };
 
     // 실측한 body의 transform
@@ -282,8 +282,8 @@ public class BoneController : MonoBehaviour
             }
             processJoint(next);
         }
-
     }
+
     public void ApplyBodyPose(ARHumanBody body)
     {
         var joints = body.joints;
@@ -296,27 +296,26 @@ public class BoneController : MonoBehaviour
             if(bone != null)
             {
                 Vector3 jrot = joint.localPose.rotation.eulerAngles;
+                Vector3 angle = jrot;
                 Vector3 bodyOffset = Vector3.zero;
                 if(arkitOffset.TryGetValue(i.Value, out bodyOffset))
                 {
-                    jrot -= bodyOffset;
+                    angle -= bodyOffset;
                 }
-                jrot += boneOffset[i.Value];
+                angle += boneOffset[i.Value];
 
-                jrot = overUnder(jrot);
+                angle = overUnder(angle);
                 
                 string original = i.Key + "\t Original = " +
                     string.Format("RX: " + "{0:0.000}" +  "\tRY: " + "{1:0.000}" + "\tRZ: " + "{2:0.000}",
                     jrot.x, jrot.y, jrot.z);
 
-                bone.transform.localRotation = Quaternion.Euler(jrot);
+                bone.transform.localRotation = Quaternion.Euler(angle);
 
-                Vector3 rrot = bone.transform.localEulerAngles;
-                /*string result = i.Key + "\t Result = " +
+                string result = i.Key + "\t Result = " +
                     string.Format("RX: " + "{0:0.000}" + "\tRY: " + "{1:0.000}" + "\tRZ: " + "{2:0.000}",
-                    rrot.x, rrot.y, rrot.z);*/
-                
-                Debug.Log(original);// + "\n" + result);
+                    angle.x, angle.y, angle.z);               
+                Debug.Log(original + "\n" + result);
             }
         }
         Debug.Log("-------------------------- New Line --------------------------------");

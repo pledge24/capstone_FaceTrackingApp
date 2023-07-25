@@ -1,7 +1,9 @@
 using System.Collections.Generic;
+using System.Numerics;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
+using Vector3 = UnityEngine.Vector3;
 
 public class BoneController : MonoBehaviour
 {
@@ -107,6 +109,8 @@ public class BoneController : MonoBehaviour
     // 측정 가능한 관절의 수.
     private const int numofjoints = 91;
 
+    [SerializeField]
+    private int rootIndex = 0;
     // 디버깅 및 값 일치 여부를 위한 관절 이름 배열.
     private readonly string[] arkitJoints = {
         "Root",                 // parent: <none> [-1]
@@ -201,11 +205,7 @@ public class BoneController : MonoBehaviour
         "RightHandThumb2",      // parent: RightHandThumb1 [88]
         "RightHandThumbEnd"     // parent: RightHandThumb2 [89]
     };
-
-    // 업데이트 할 관절의 목록 오버라이딩 및 배열
-    Dictionary<string, int> appliedJoint = new Dictionary<string, int>()
-    {
-        {"joint_Root",  0 }, {"Hips",        1 }, {"UpperLeg_L",  2 },
+    /*{"joint_Root",  0 }, {"Hips",        1 }, {"UpperLeg_L",  2 },
         {"LowerLeg_L",  3 }, {"Foot_L",      4 }, {"Toes_L",      5 },
         {"UpperLeg_R",  7 }, {"LowerLeg_R",  8 }, {"Foot_R",      9 },
         {"Toes_R",      10}, {"Spine",       12}, {"Chest",       15},
@@ -222,11 +222,35 @@ public class BoneController : MonoBehaviour
         {"Middle3_R",   75}, {"Pinky1_R",    78}, {"Pinky2_R",    79},
         {"Pinky3_R",    80}, {"Ring1_R",     83}, {"Ring2_R",     84},
         {"Ring3_R",     85}, {"Thumb1_R",    87}, {"Thumb2_R",    88}, 
-        {"Thumb3_R",    89}
+        {"Thumb3_R",    89}*/
+
+    // 업데이트 할 관절의 목록 오버라이딩 및 배열
+    Dictionary<string, int> appliedJoint = new Dictionary<string, int>()
+    {
+        {"Armature",     0 }, {"Hips",        1 }, {"Upper_Leg_L", 2 },
+        {"Lower_Leg_L", 3 }, {"Foot_L",      4 }, {"Toe_L",       5 },
+        {"Upper_Leg_R", 7 }, {"Lower_Leg_R", 8 }, {"Foot_R",      9 },
+        {"Toe_R",       10}, {"Spine",       12}, {"Chest",       15},
+        {"Shoulder_L",  19}, {"Upper_Arm_L", 20}, {"Lower_Arm_L", 21},
+        {"Wrist_L",     22}, {"Index_L_1",   24}, {"Index_L_2",   25},
+        {"Index_L_3",   26}, {"Middle_L_1",  29}, {"Middle_L_2",  30},
+        {"Middle_L_3",  31}, {"Little_L_1",  34}, {"Little_L_2",  35},
+        {"Little_L_3",  36}, {"Ring_L_1",    39}, {"Ring_L_2",    40},
+        {"Ring_L_3",    41}, {"Thumb_L_1",   43}, {"Thumb_L_2",   44},
+        {"Thumb_L_3",   45}, {"Neck",        47}, {"Head 1",      51},
+        {"LeftEye",     54}, {"RightEye",    59}, {"Shoulder_R",  63},
+        {"Upper_Arm_R", 64}, {"Lower_Arm_R", 65}, {"Wrist_R",     66},
+        {"Index_R_1",   68}, {"Index_R_2",   69}, {"Index_R_3",   70},
+        {"Middle_R_1",  73}, {"Middle_R_2",  74}, {"Middle_R_3",  75},
+        {"Little_R_1",  78}, {"Little_R_2",  79}, {"Little_R_3",  80},
+        {"Ring_R_1",    83}, {"Ring_R_2",    84}, {"Ring_R_3",    85},
+        {"Thumb_R_1",   87}, {"Thumb_R_2",   88}, {"Thumb_R_3",   89}
     };
 
     // 연산할 모델의 관절 배열
     Dictionary<int, Transform> bones = new Dictionary<int, Transform>();
+
+    private Vector3[] pre = new Vector3[numofjoints];
 
     // ARKit 측정값 보간
     Dictionary<int, Vector3> arkitOffset = new Dictionary<int, Vector3>()
@@ -269,7 +293,7 @@ public class BoneController : MonoBehaviour
     // 측정한 관절과 모델에 반영할 관절들 초기화.
     public void InitJoints() {
         Queue<Transform> nodes = new Queue<Transform>();
-        Transform joint = root.GetChild(root.childCount - 1); // 해당 모델 프리팹의 관절 root만 가져옴.
+        Transform joint = root.GetChild(rootIndex);//root.childCount - 1); // 해당 모델 프리팹의 관절 root만 가져옴.
         Debug.Log("Joint found: " + joint.name);
 
         nodes.Enqueue(joint);
@@ -283,7 +307,7 @@ public class BoneController : MonoBehaviour
             processJoint(next);
         }
     }
-
+    
     public void ApplyBodyPose(ARHumanBody body)
     {
         var joints = body.joints;
@@ -295,14 +319,23 @@ public class BoneController : MonoBehaviour
             Transform bone = bones[i.Value];
             if(bone != null)
             {
-                Vector3 jrot = joint.localPose.rotation.eulerAngles;
+                Vector3 offset = Vector3.zero;
+                bone.localEulerAngles = joint.localPose.rotation.eulerAngles;
+                if(arkitOffset.TryGetValue(i.Value,out offset))
+                {
+                    bone.localEulerAngles -= offset;
+                }
+
+                Debug.Log(bone.name + " LocalPose: \t" + joint.localPose.rotation.eulerAngles + "\tApplied: " + bone.localEulerAngles);
+                /*Vector3 jrot = joint.localPose.rotation.eulerAngles;
                 Vector3 angle = jrot;
                 Vector3 bodyOffset = Vector3.zero;
+                Debug.Log("Getting ARKit offset");
                 if(arkitOffset.TryGetValue(i.Value, out bodyOffset))
                 {
                     angle -= bodyOffset;
                 }
-                angle += boneOffset[i.Value];
+                //angle += boneOffset[i.Value];
 
                 angle = overUnder(angle);
                 
@@ -310,34 +343,15 @@ public class BoneController : MonoBehaviour
                     string.Format("RX: " + "{0:0.000}" +  "\tRY: " + "{1:0.000}" + "\tRZ: " + "{2:0.000}",
                     jrot.x, jrot.y, jrot.z);
 
-                bone.transform.localRotation = Quaternion.Euler(angle);
+                bone.transform.localEulerAngles = angle;
 
                 string result = i.Key + "\t Result = " +
                     string.Format("RX: " + "{0:0.000}" + "\tRY: " + "{1:0.000}" + "\tRZ: " + "{2:0.000}",
                     angle.x, angle.y, angle.z);               
-                Debug.Log(original + "\n" + result);
+                Debug.Log(original + "\n" + result);*/
             }
         }
         Debug.Log("-------------------------- New Line --------------------------------");
-        /*for(int i = 0; i < numofjoints; i++)
-        {
-            XRHumanBodyJoint joint = joints[i];
-            var bone = boneMapping[i];
-            if(bone != null)
-            {
-                Quaternion rot = joint.localPose.rotation;
-                Vector3 vec = rot.eulerAngles;// - boneOffset[i].eulerAngles;
-                bone.transform.localRotation = Quaternion.Euler(vec);
-                Vector3 v = bone.transform.localRotation.eulerAngles;
-                
-                Debug.Log(arkitJoints[joint.index] + " => rx: " + string.Format("{0:0.000}", rot.eulerAngles.x)
-                    + "ry: " + string.Format("{0:0.000}", rot.eulerAngles.y) +
-                    "rz: " + string.Format("{0:0.000}", rot.eulerAngles.z));
-                Debug.Log(joint.index + " => vrx: " + string.Format("{0:0.000}", v.x)
-                    + "\tvry: " + string.Format("{0:0.000}", v.y) +
-                    "\tvrz: " + string.Format("{0:0.000}", v.z));
-            }
-        }*/
     }
 
     private Vector3 overUnder(Vector3 source)

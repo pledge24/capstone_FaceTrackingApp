@@ -1,80 +1,69 @@
-using System.Threading.Tasks;
-using UniGLTF;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARFoundation.Samples;
 using UnityEngine.XR.ARSubsystems;
-using UniVRM10;
-using File = System.IO.File;
 
 public class VRMConvert : MonoBehaviour
 {
-    public Animator animator;
+    public Animator virtualSpaceAnimator;
     
     [SerializeField]
-    private GameObject instance;
+    private GameObject virtualSpaceCharacter;
     
-    private HumanBodyTracker tracker;
+    private HumanBodyTracker bodyTracker;
 
-    private TrackableId id;
+    private TrackableId bodyTrackableId;
 
-    [SerializeField] private ARHumanBodyManager hbm;
+    [SerializeField] private ARHumanBodyManager bodyManager;
 
-    private string file = "Elaina_VRM(CasualVersion).vrm";
-    
-    // Start is called before the first frame update
+    // Setup components before run this scene.
     void Start()
     {
-        if (tracker == null)
+        if (bodyTracker == null)
         {
-            tracker = GameObject.Find("HumanBodyTracker").GetComponent<HumanBodyTracker>();
+            bodyTracker = GameObject.Find("HumanBodyTracker").GetComponent<HumanBodyTracker>();
         }
-
-        //var vrm = LoadAsync($"{Application.streamingAssetsPath}/" + file);
+        virtualSpaceAnimator = virtualSpaceCharacter.GetComponent<Animator>();
+        virtualSpaceAnimator.applyRootMotion = true;
+        virtualSpaceCharacter.transform.position = Vector3.up;
+        virtualSpaceCharacter.transform.rotation = Quaternion.identity;
         
-        animator = instance.GetComponent<Animator>();
-        instance.transform.position = Vector3.zero;
-        instance.transform.rotation = Quaternion.identity;
-        animator.applyRootMotion = true;
     }
 
+    // Get the original humanoid and apply it immediately.
     private void UpdatePose(Animator humanAnimator)
     {
         HumanPoseHandler original = new HumanPoseHandler(humanAnimator.avatar, humanAnimator.transform);
-        HumanPoseHandler target = new HumanPoseHandler(animator.avatar, animator.transform);
+        HumanPoseHandler target = new HumanPoseHandler(virtualSpaceAnimator.avatar, virtualSpaceAnimator.transform);
 
         HumanPose pose = new HumanPose();
         original.GetHumanPose(ref pose);
         target.SetHumanPose(ref pose);
     }
-
+    
+    // Set the transform as same as body stand on.
     private void UpdateTransform(TrackableId trackableId)
     {
-        if (hbm == null) return;
-        ARHumanBody body = hbm.GetHumanBody(trackableId);
-        instance.transform.position = body.transform.position;
-        instance.transform.rotation = body.transform.rotation;
-        Debug.Log(instance.transform.position);
+        if (bodyManager == null) return;
+        ARHumanBody body = bodyManager.GetHumanBody(trackableId);
+        if (body == null) return;
+        virtualSpaceCharacter.transform.position = body.transform.position;
+        virtualSpaceCharacter.transform.rotation = body.transform.rotation;
     }
-
-    async Task<Vrm10Instance> LoadAsync(string path)
-    {
-        return await Vrm10.LoadPathAsync(path);
-    }
-
+    
+    // Pose and transform every frame when body transform loaded.
     private void Update()
     {
-        tracker = GetComponent<HumanBodyTracker>();
-        id = tracker.Id;
-        Animator original = tracker.HbtAnimator;
-        if (animator == null)
+        bodyTracker = GetComponent<HumanBodyTracker>();
+        bodyTrackableId = bodyTracker.TrackableId;
+        Animator original = bodyTracker.bodyAnimator;
+        if (virtualSpaceAnimator == null)
         {
             return;
         }
         if(original != null)
             UpdatePose(original);
-        if (id != null)
-            UpdateTransform(id);
-
+        if (bodyTrackableId != null)
+            UpdateTransform(bodyTrackableId);
     }
 }

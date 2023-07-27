@@ -1,7 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Text;
-using UnityEngine;
-using UnityEngine.Serialization;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
 
@@ -10,80 +8,76 @@ namespace UnityEngine.XR.ARFoundation.Samples
     public class HumanBodyTracker : MonoBehaviour
     {
         [SerializeField]
-        GameObject skeleton;
+        private GameObject bodySkeleton;
 
         [SerializeField]
-        ARHumanBodyManager hbm;
+        private ARHumanBodyManager humanBodyManager;
 
-        public Animator HbtAnimator;
+        public Animator bodyAnimator;
         
-        private TrackableId id;
+        private TrackableId trackableId;
 
-        public TrackableId Id
+        public TrackableId TrackableId
         {
-            get { return id; }
-            set { id = value; }
-        }
-
-        public ARHumanBodyManager HumanBodyManager
-        {
-            get { return hbm; }
-            set { hbm = value; }
+            get { return trackableId; }
+            set { trackableId = value; }
         }
         
-        public GameObject Skeleton
+        private Dictionary<TrackableId, BoneController> bodyTracker = new Dictionary<TrackableId, BoneController>();
+        
+        // Set stacktrace output type for debugging.
+        private void Awake()
         {
-            get { return skeleton; }
-            set { skeleton = value; }
+            Application.SetStackTraceLogType(LogType.Log, StackTraceLogType.None);
         }
 
-        Dictionary<TrackableId, BoneController> tracker = new Dictionary<TrackableId, BoneController>();
-
+        // When body is detected change this value to activate.
         void OnEnable()
         {
-            hbm.humanBodiesChanged += OnHumanBodiesChanged;
+            humanBodyManager.humanBodiesChanged += OnHumanBodiesChanged;
         }
-
+        
+        // When body is no longer detected, deactivate it.
         void OnDisable()
         {
-            if (hbm != null)
-                hbm.humanBodiesChanged -= OnHumanBodiesChanged;
+            if (humanBodyManager != null)
+                humanBodyManager.humanBodiesChanged -= OnHumanBodiesChanged;
         }
-
+        
+        // Add all detected bodies value into bodyTracker with each BoneController.
         void OnHumanBodiesChanged(ARHumanBodiesChangedEventArgs eventArgs)
         {
             BoneController controller;
-
+            // Run this if new body is detected.
             foreach (var humanBody in eventArgs.added)
             {
-                if (!tracker.TryGetValue(humanBody.trackableId, out controller))
+                // If body of BoneController is not in bodyTracker get the value and add it.
+                if (!bodyTracker.TryGetValue(humanBody.trackableId, out controller))
                 {
-                    GameObject newbody = Instantiate(skeleton, humanBody.transform);
-                    controller = newbody.GetComponent<BoneController>();
-                    tracker.Add(humanBody.trackableId, controller);
-                    Id = humanBody.trackableId;
-                    HbtAnimator = newbody.GetComponent<Animator>();
+                    GameObject newBody = Instantiate(bodySkeleton, humanBody.transform);
+                    controller = newBody.GetComponent<BoneController>();
+                    bodyTracker.Add(humanBody.trackableId, controller);
+                    TrackableId = humanBody.trackableId;
+                    bodyAnimator = newBody.GetComponent<Animator>();
                 }
-      
-                
-                controller.InitJoints();
+                controller.InitializeJoints();
                 controller.ApplyBodyPose(humanBody);
             }
-
+            // Load each pose and apply it.
             foreach (var humanBody in eventArgs.updated)
             {
-                if (tracker.TryGetValue(humanBody.trackableId, out controller))
+                if (bodyTracker.TryGetValue(humanBody.trackableId, out controller))
                 {
                     controller.ApplyBodyPose(humanBody);
                 }
             }
-
+            // Remove when it is no longer detected.
             foreach (var humanBody in eventArgs.removed)
             {
-                if (tracker.TryGetValue(humanBody.trackableId, out controller))
+                if (bodyTracker.TryGetValue(humanBody.trackableId, out controller))
                 {
                     Destroy(controller.gameObject);
-                    tracker.Remove(humanBody.trackableId);
+                    bodyTracker.Remove(humanBody.trackableId);
                 }
             }
         }

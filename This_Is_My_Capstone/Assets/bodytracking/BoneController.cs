@@ -1,5 +1,5 @@
+using System;
 using System.Collections.Generic;
-using System.Numerics;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
@@ -109,181 +109,18 @@ public class BoneController : MonoBehaviour
     // 측정 가능한 관절의 수.
     private const int numofjoints = 91;
 
-    [SerializeField]
-    private int rootIndex = 0;
-    // 디버깅 및 값 일치 여부를 위한 관절 이름 배열.
-    private readonly string[] arkitJoints = {
-        "Root",                 // parent: <none> [-1]
-        "Hips",                 // parent: Root [0]
-        "LeftUpLeg",            // parent: Hips [1]
-        "LeftLeg",              // parent: LeftUpLeg [2]
-        "LeftFoot",             // parent: LeftLeg [3]
-        "LeftToes",             // parent: LeftFoot [4]
-        "LeftToesEnd",          // parent: LeftToes [5]
-        "RightUpLeg",           // parent: Hips [1]
-        "RightLeg",             // parent: RightUpLeg [7]
-        "RightFoot",            // parent: RightLeg [8]
-        "RightToes",            // parent: RightFoot [9]
-        "RightToesEnd",         // parent: RightToes [10]
-        "Spine1",               // parent: Hips [1]
-        "Spine2",               // parent: Spine1 [12]
-        "Spine3",               // parent: Spine2 [13]
-        "Spine4",               // parent: Spine3 [14]
-        "Spine5",               // parent: Spine4 [15]
-        "Spine6",               // parent: Spine5 [16]
-        "Spine7",               // parent: Spine6 [17]
-        "LeftShoulder1",        // parent: Spine7 [18]
-        "LeftArm",              // parent: LeftShoulder1 [19]
-        "LeftForearm",          // parent: LeftArm [20]
-        "LeftHand",             // parent: LeftForearm [21]
-        "LeftHandIndexStart",   // parent: LeftHand [22]
-        "LeftHandIndex1",       // parent: LeftHandIndexStart [23]
-        "LeftHandIndex2",       // parent: LeftHandIndex1 [24]
-        "LeftHandIndex3",       // parent: LeftHandIndex2 [25]
-        "LeftHandIndexEnd",     // parent: LeftHandIndex3 [26]
-        "LeftHandMidStart",     // parent: LeftHand [22]
-        "LeftHandMid1",         // parent: LeftHandMidStart [28]
-        "LeftHandMid2",         // parent: LeftHandMid1 [29]
-        "LeftHandMid3",         // parent: LeftHandMid2 [30]
-        "LeftHandMidEnd",       // parent: LeftHandMid3 [31]
-        "LeftHandPinkyStart",   // parent: LeftHand [22]
-        "LeftHandPinky1",       // parent: LeftHandPinkyStart [33]
-        "LeftHandPinky2",       // parent: LeftHandPinky1 [34]
-        "LeftHandPinky3",       // parent: LeftHandPinky2 [35]
-        "LeftHandPinkyEnd",     // parent: LeftHandPinky3 [36]
-        "LeftHandRingStart",    // parent: LeftHand [22]
-        "LeftHandRing1",        // parent: LeftHandRingStart [38]
-        "LeftHandRing2",        // parent: LeftHandRing1 [39]
-        "LeftHandRing3",        // parent: LeftHandRing2 [40]
-        "LeftHandRingEnd",      // parent: LeftHandRing3 [41]
-        "LeftHandThumbStart",   // parent: LeftHand [22]
-        "LeftHandThumb1",       // parent: LeftHandThumbStart [43]
-        "LeftHandThumb2",       // parent: LeftHandThumb1 [44]
-        "LeftHandThumbEnd",     // parent: LeftHandThumb2 [45]
-        "Neck1",                // parent: Spine7 [18]
-        "Neck2",                // parent: Neck1 [47]
-        "Neck3",                // parent: Neck2 [48]
-        "Neck4",                // parent: Neck3 [49]
-        "Head",                 // parent: Neck4 [50]
-        "Jaw",                  // parent: Head [51]
-        "Chin",                 // parent: Jaw [52]
-        "LeftEye",              // parent: Head [51]
-        "LeftEyeLowerLid",      // parent: LeftEye [54]
-        "LeftEyeUpperLid",      // parent: LeftEye [54]
-        "LeftEyeball",          // parent: LeftEye [54]
-        "Nose",                 // parent: Head [51]
-        "RightEye",             // parent: Head [51]
-        "RightEyeLowerLid",     // parent: RightEye [59]
-        "RightEyeUpperLid",     // parent: RightEye [59]
-        "RightEyeball",         // parent: RightEye [59]
-        "RightShoulder1",       // parent: Spine7 [18]
-        "RightArm",             // parent: RightShoulder1 [63]
-        "RightForearm",         // parent: RightArm [64]
-        "RightHand",            // parent: RightForearm [65]
-        "RightHandIndexStart",  // parent: RightHand [66]
-        "RightHandIndex1",      // parent: RightHandIndexStart [67]
-        "RightHandIndex2",      // parent: RightHandIndex1 [68]
-        "RightHandIndex3",      // parent: RightHandIndex2 [69]
-        "RightHandIndexEnd",    // parent: RightHandIndex3 [70]
-        "RightHandMidStart",    // parent: RightHand [66]
-        "RightHandMid1",        // parent: RightHandMidStart [72]
-        "RightHandMid2",        // parent: RightHandMid1 [73]
-        "RightHandMid3",        // parent: RightHandMid2 [74]
-        "RightHandMidEnd",      // parent: RightHandMid3 [75]
-        "RightHandPinkyStart",  // parent: RightHand [66]
-        "RightHandPinky1",      // parent: RightHandPinkyStart [77]
-        "RightHandPinky2",      // parent: RightHandPinky1 [78]
-        "RightHandPinky3",      // parent: RightHandPinky2 [79]
-        "RightHandPinkyEnd",    // parent: RightHandPinky3 [80]
-        "RightHandRingStart",   // parent: RightHand [66]
-        "RightHandRing1",       // parent: RightHandRingStart [82]
-        "RightHandRing2",       // parent: RightHandRing1 [83]
-        "RightHandRing3",       // parent: RightHandRing2 [84]
-        "RightHandRingEnd",     // parent: RightHandRing3 [85]
-        "RightHandThumbStart",  // parent: RightHand [66]
-        "RightHandThumb1",      // parent: RightHandThumbStart [87]
-        "RightHandThumb2",      // parent: RightHandThumb1 [88]
-        "RightHandThumbEnd"     // parent: RightHandThumb2 [89]
-    };
-    /*{"joint_Root",  0 }, {"Hips",        1 }, {"UpperLeg_L",  2 },
-        {"LowerLeg_L",  3 }, {"Foot_L",      4 }, {"Toes_L",      5 },
-        {"UpperLeg_R",  7 }, {"LowerLeg_R",  8 }, {"Foot_R",      9 },
-        {"Toes_R",      10}, {"Spine",       12}, {"Chest",       15},
-        {"Shoulder_L",  19}, {"UpperArm_L",  20}, {"LowerArm_L",  21},
-        {"Hand_L",      22}, {"Index1_L",    24}, {"Index2_L",    25}, 
-        {"Index3_L",    26}, {"Middle1_L",   29}, {"Middle2_L",   30},
-        {"Middle3_L",   31}, {"Pinky1_L",    34}, {"Pinky2_L",    35},
-        {"Pinky3_L",    36}, {"Ring1_L",     39}, {"Ring2_L",     40},
-        {"Ring3_L",     41}, {"Thumb1_L",    43}, {"Thumb2_L",    44},
-        {"Thumb3_L",    45}, {"Neck",        47}, {"Head",        51},
-        {"Shoulder_R",  63}, {"UpperArm_R",  64}, {"LowerArm_R",  65},
-        {"Hand_R",      66}, {"Index1_R",    68}, {"Index2_R",    69},
-        {"Index3_R",    70}, {"Middle1_R",   73}, {"Middle2_R",   74},
-        {"Middle3_R",   75}, {"Pinky1_R",    78}, {"Pinky2_R",    79},
-        {"Pinky3_R",    80}, {"Ring1_R",     83}, {"Ring2_R",     84},
-        {"Ring3_R",     85}, {"Thumb1_R",    87}, {"Thumb2_R",    88}, 
-        {"Thumb3_R",    89}*/
-
-    // 업데이트 할 관절의 목록 오버라이딩 및 배열
-    Dictionary<string, int> appliedJoint = new Dictionary<string, int>()
-    {
-        {"Armature",     0 }, {"Hips",        1 }, {"Upper_Leg_L", 2 },
-        {"Lower_Leg_L", 3 }, {"Foot_L",      4 }, {"Toe_L",       5 },
-        {"Upper_Leg_R", 7 }, {"Lower_Leg_R", 8 }, {"Foot_R",      9 },
-        {"Toe_R",       10}, {"Spine",       12}, {"Chest",       15},
-        {"Shoulder_L",  19}, {"Upper_Arm_L", 20}, {"Lower_Arm_L", 21},
-        {"Wrist_L",     22}, {"Index_L_1",   24}, {"Index_L_2",   25},
-        {"Index_L_3",   26}, {"Middle_L_1",  29}, {"Middle_L_2",  30},
-        {"Middle_L_3",  31}, {"Little_L_1",  34}, {"Little_L_2",  35},
-        {"Little_L_3",  36}, {"Ring_L_1",    39}, {"Ring_L_2",    40},
-        {"Ring_L_3",    41}, {"Thumb_L_1",   43}, {"Thumb_L_2",   44},
-        {"Thumb_L_3",   45}, {"Neck",        47}, {"Head 1",      51},
-        {"LeftEye",     54}, {"RightEye",    59}, {"Shoulder_R",  63},
-        {"Upper_Arm_R", 64}, {"Lower_Arm_R", 65}, {"Wrist_R",     66},
-        {"Index_R_1",   68}, {"Index_R_2",   69}, {"Index_R_3",   70},
-        {"Middle_R_1",  73}, {"Middle_R_2",  74}, {"Middle_R_3",  75},
-        {"Little_R_1",  78}, {"Little_R_2",  79}, {"Little_R_3",  80},
-        {"Ring_R_1",    83}, {"Ring_R_2",    84}, {"Ring_R_3",    85},
-        {"Thumb_R_1",   87}, {"Thumb_R_2",   88}, {"Thumb_R_3",   89}
-    };
-
     // 연산할 모델의 관절 배열
     Dictionary<int, Transform> bones = new Dictionary<int, Transform>();
-
-    private Vector3[] pre = new Vector3[numofjoints];
-
-    // ARKit 측정값 보간
-    Dictionary<int, Vector3> arkitOffset = new Dictionary<int, Vector3>()
-    {
-        {2, new Vector3(0, 263, 265) },
-        {3, new Vector3(0, 0, 10) },
-        {4, new Vector3(0, 0, 280) },
-        {7, new Vector3(0, 277, 85) },
-        {8, new Vector3(0, 0, 10) },
-        {9, new Vector3(0, 0, 285) },
-        {12, new Vector3(0, 270, 77) },
-        {19, new Vector3(0, 328, 163) },
-        {20, new Vector3(0, 323, 0) },
-        {21, new Vector3(0, 0, 350) },
-        {22, new Vector3(74, 0, 0) },
-        {63, new Vector3(354, 0, 0) },
-        {64, new Vector3(0, 325, 0) },
-        {65, new Vector3(0, 0, 353) },
-        {66, new Vector3(74, 0, 0) }
-    };
-
+    
     // 실측한 body의 transform
-    private Transform root;
+    public GameObject root;
 
     // 연산에 필요한 root 설정.
-    public Transform skeletonRoot
+    public GameObject skeletonRoot
     {
         get { return root; }
         set { root = value; }
     }
-
-    // 기존 모델의 오프셋.
-    Dictionary<int, Vector3> boneOffset = new Dictionary<int, Vector3>();
 
     private void Awake()
     {
@@ -293,7 +130,7 @@ public class BoneController : MonoBehaviour
     // 측정한 관절과 모델에 반영할 관절들 초기화.
     public void InitJoints() {
         Queue<Transform> nodes = new Queue<Transform>();
-        Transform joint = root.GetChild(rootIndex);//root.childCount - 1); // 해당 모델 프리팹의 관절 root만 가져옴.
+        Transform joint = root.transform;
         Debug.Log("Joint found: " + joint.name);
 
         nodes.Enqueue(joint);
@@ -313,61 +150,16 @@ public class BoneController : MonoBehaviour
         var joints = body.joints;
         //root.position = body.transform.position;
         if (!joints.IsCreated) return;
-        foreach(KeyValuePair<string, int> i in appliedJoint)
+        foreach(KeyValuePair<int, Transform> i in bones)
         {
-            XRHumanBodyJoint joint = joints[i.Value];
-            Transform bone = bones[i.Value];
+            XRHumanBodyJoint joint = joints[i.Key];
+            Transform bone = i.Value;
             if(bone != null)
             {
-                Vector3 offset = Vector3.zero;
-                bone.localEulerAngles = joint.localPose.rotation.eulerAngles;
-                if(arkitOffset.TryGetValue(i.Value,out offset))
-                {
-                    bone.localEulerAngles -= offset;
-                }
-
-                Debug.Log(bone.name + " LocalPose: \t" + joint.localPose.rotation.eulerAngles + "\tApplied: " + bone.localEulerAngles);
-                /*Vector3 jrot = joint.localPose.rotation.eulerAngles;
-                Vector3 angle = jrot;
-                Vector3 bodyOffset = Vector3.zero;
-                Debug.Log("Getting ARKit offset");
-                if(arkitOffset.TryGetValue(i.Value, out bodyOffset))
-                {
-                    angle -= bodyOffset;
-                }
-                //angle += boneOffset[i.Value];
-
-                angle = overUnder(angle);
-                
-                string original = i.Key + "\t Original = " +
-                    string.Format("RX: " + "{0:0.000}" +  "\tRY: " + "{1:0.000}" + "\tRZ: " + "{2:0.000}",
-                    jrot.x, jrot.y, jrot.z);
-
-                bone.transform.localEulerAngles = angle;
-
-                string result = i.Key + "\t Result = " +
-                    string.Format("RX: " + "{0:0.000}" + "\tRY: " + "{1:0.000}" + "\tRZ: " + "{2:0.000}",
-                    angle.x, angle.y, angle.z);               
-                Debug.Log(original + "\n" + result);*/
+                bone.localPosition = joint.localPose.position;
+                bone.localRotation = joint.localPose.rotation;
             }
         }
-        Debug.Log("-------------------------- New Line --------------------------------");
-    }
-
-    private Vector3 overUnder(Vector3 source)
-    {
-        Vector3 result = source;
-        if (source.x >= 360) result.x = source.x % 360;
-        else if (source.x <= -360) result.x = source.x % -360;
-        else result.x = source.x;
-        if (source.y >= 360) result.y = source.y % 360;
-        else if (source.y <= -360) result.y = source.y % -360;
-        else result.y = source.y;
-        if (source.z >= 360) result.z = source.z % 360;
-        else if (source.z <= -360) result.z = source.z % -360;
-        else result.z = source.z;
-
-        return result;
     }
 
     private void processJoint(Transform joint)
@@ -377,15 +169,14 @@ public class BoneController : MonoBehaviour
         {
             Debug.Log("Joint Added: " + joint.name);
             bones.Add(i, joint);
-            boneOffset.Add(i, joint.localRotation.eulerAngles);
         }
     }
     private int GetJointIndex(string name)
     {
-        int val;
-        if (appliedJoint.TryGetValue(name, out val))
+        JointIndices3D val;
+        if (Enum.TryParse(name, out val))
         {
-            return val;
+            return (int)val;
         }
         return -1;
     }

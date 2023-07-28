@@ -3,11 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
+using Vector3 = UnityEngine.Vector3;
 
 public class BoneController : MonoBehaviour
 {
-    // Pre-declared joint number 
-    private enum JointIndices3D
+    /*
+     * ARKit에 정의된 관절 정점 번호 및 이름.
+     * 사전에 실행 전 값을 알려준다.
+     */ 
+    public enum JointIndices3D
     {
         Invalid = -1,
         Root = 0, // parent: <none> [-1]
@@ -102,19 +106,29 @@ public class BoneController : MonoBehaviour
         RightHandThumb2 = 89, // parent: RightHandThumb1 [88]
         RightHandThumbEnd = 90, // parent: RightHandThumb2 [89]
     }
-    
-    // Maximum number of joints.
-    private const int NUMOFJOINTS = 91;
+    // 측정 가능한 관절의 수.
+    private const int numofjoints = 91;
 
-    // Array of joints applied into model.
-    private Dictionary<int, Transform> bones = new Dictionary<int, Transform>();
+    // 연산할 모델의 관절 배열
+    Dictionary<int, Transform> bones = new Dictionary<int, Transform>();
     
-    // The root joint of prefab.
+    // 실측한 body의 transform
     public GameObject root;
 
-    // Initialize the detected joints and model joints.
-    public void InitializeJoints() {
-        
+    // 연산에 필요한 root 설정.
+    public GameObject skeletonRoot
+    {
+        get { return root; }
+        set { root = value; }
+    }
+
+    private void Awake()
+    {
+        Application.SetStackTraceLogType(LogType.Log, StackTraceLogType.None);
+    }
+
+    // 측정한 관절과 모델에 반영할 관절들 초기화.
+    public void InitJoints() {
         Queue<Transform> nodes = new Queue<Transform>();
         Transform joint = root.transform;
         Debug.Log("Joint found: " + joint.name);
@@ -127,14 +141,14 @@ public class BoneController : MonoBehaviour
             {
                 nodes.Enqueue(next.GetChild(i));
             }
-            ProcessJoint(next);
+            processJoint(next);
         }
     }
-    // Apply body joints into model joints.
+    
     public void ApplyBodyPose(ARHumanBody body)
     {
         var joints = body.joints;
-        
+        //root.position = body.transform.position;
         if (!joints.IsCreated) return;
         foreach(KeyValuePair<int, Transform> i in bones)
         {
@@ -147,17 +161,16 @@ public class BoneController : MonoBehaviour
             }
         }
     }
-    // Find a body joint which is exists on model.
-    private void ProcessJoint(Transform joint)
+
+    private void processJoint(Transform joint)
     {
         int i = GetJointIndex(joint.name);
-        if (i >= 0 && i < NUMOFJOINTS)
+        if (i >= 0 && i < numofjoints)
         {
             Debug.Log("Joint Added: " + joint.name);
             bones.Add(i, joint);
         }
     }
-    // Get joint number when joint exists.
     private int GetJointIndex(string name)
     {
         JointIndices3D val;

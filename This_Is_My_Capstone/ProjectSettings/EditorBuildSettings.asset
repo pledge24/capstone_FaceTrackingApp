@@ -17,7 +17,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/MelonV2.unity
     guid: 194a1443f72b143e28463ecad5e39fec
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/blackTeaV1.unity
     guid: 6facf211dbc884695b017fcc0de463f0
   m_configObjects:

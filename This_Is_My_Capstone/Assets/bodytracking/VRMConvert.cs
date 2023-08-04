@@ -23,7 +23,7 @@ public class VRMConvert : MonoBehaviour
         {
             bodyTracker = GameObject.Find("HumanBodyTracker").GetComponent<HumanBodyTracker>();
         }
-        virtualSpaceAnimator = virtualSpaceCharacter.GetComponent<Animator>();
+        virtualSpaceAnimator = virtualSpaceCharacter.GetComponentInChildren<Animator>();
         virtualSpaceAnimator.applyRootMotion = true;
         virtualSpaceCharacter.transform.position = Vector3.up;
         virtualSpaceCharacter.transform.rotation = Quaternion.identity;

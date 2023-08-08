@@ -10,7 +10,26 @@ using UnityEngine.iOS;
 
 public class InitAgora : MonoBehaviour
 {
+    private const int VIEWWIDTH = 1920;
+    private const int VIEWHEIGHT = 1080;
+    private string streamingURI = "rtmp://a.rtmp.youtube.com/live2/";
+    private string streamingKey = "streaming key";
 
+    public string StreamingUri
+    {
+        get => streamingURI;
+        set => streamingURI = value;
+    }
+
+    private uint MyUid { get; set; }
+    private uint RemoteUid 
+    { get; set; }
+
+    public string StreamingKey
+    {
+        get => streamingKey;
+        set => streamingKey = value;
+    }
     private string AppID;
 
     private string token, clientRole, channelName;
@@ -39,6 +58,48 @@ public class InitAgora : MonoBehaviour
             CHANNEL_PROFILE_TYPE.CHANNEL_PROFILE_LIVE_BROADCASTING,
             AUDIO_SCENARIO_TYPE.AUDIO_SCENARIO_DEFAULT, AREA_CODE.AREA_CODE_AS, null);
         engine.Initialize(context);
+
+        VideoEncoderConfiguration configuration = new VideoEncoderConfiguration
+            { dimensions = new VideoDimensions(width: VIEWWIDTH, height: VIEWHEIGHT), 
+                frameRate = (int)FRAME_RATE.FRAME_RATE_FPS_60};
+        engine.SetVideoEncoderConfiguration(configuration);
+        
+    }
+
+    private void StartTranscoding()
+    {
+        LiveTranscoding liveTranscoding = new LiveTranscoding();
+        TranscodingUser user = new TranscodingUser();
+        user.uid = remoteUid;
+        user.x = 0;
+        user.y = 0;
+        user.width = VIEWWIDTH;
+        user.height = VIEWHEIGHT;
+        user.audioChannel = 0;
+        user.alpha = 1;
+
+        TranscodingUser me = new TranscodingUser();
+        me.uid = MyUid;
+        me.x = 0;
+        me.y = 0;
+        me.width = VIEWWIDTH;
+        me.height = VIEWHEIGHT;
+        me.audioChannel = 0;
+
+        liveTranscoding.transcodingUsers = new[] { me, user };
+        liveTranscoding.userCount = 2;
+        liveTranscoding.height =  VIEWHEIGHT;
+        liveTranscoding.width = 2 * VIEWWIDTH;
+        liveTranscoding.videoBitrate = 6000;
+        liveTranscoding.videoCodecProfile = VIDEO_CODEC_PROFILE_TYPE.VIDEO_CODEC_PROFILE_HIGH;
+        liveTranscoding.videoGop = 60;
+        liveTranscoding.videoFramerate = 60;
+
+    }
+
+    private void StopTranscoding()
+    {
+         
     }
 
     private void InitEventHandler()

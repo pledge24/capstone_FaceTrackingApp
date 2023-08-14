@@ -111,8 +111,10 @@ public class BoneController : MonoBehaviour
     
     // The root joint of prefab.
     public GameObject root;
-
-    // Initialize the detected joints and model joints.
+    
+    /// <summary>
+    /// Initialize the detected joints and model joints.
+    /// </summary>
     public void InitializeJoints() {
         
         Queue<Transform> nodes = new Queue<Transform>();

@@ -20,6 +20,9 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/blackTeaV1.unity
     guid: 6facf211dbc884695b017fcc0de463f0
+  - enabled: 1
+    path: Assets/bodytracking/BodyTest.unity
+    guid: 3ed646fb8999b4408876e5c8a4db7945
   m_configObjects:
     UnityEditor.XR.ARKit.ARKitSettings: {fileID: 11400000, guid: 2b977acad209545ee846795928c1af62, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 38c306125d7014125b1e3343709fa58b, type: 2}

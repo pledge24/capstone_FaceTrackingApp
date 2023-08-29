@@ -14,7 +14,10 @@ public class SetDebug : MonoBehaviour
     private const float WAITTIME = 2;
 
     private float currentTime = 0;
-    // Start is called before the first frame update
+    
+    /// <summary>
+    /// Initialize null camera objects if those are null.
+    /// </summary>
     void Start()
     {
         if (VRCamera == null)
@@ -23,8 +26,10 @@ public class SetDebug : MonoBehaviour
             ARCamera = GameObject.Find("AR Camera").GetComponent<Camera>();
         status = false;
     }
-
-    // Update is called once per frame
+    
+    /// <summary>
+    /// Hold more than 3 touches to activate comparing camera.
+    /// </summary>
     void Update()
     {
         if (Input.touches.Length > 3)

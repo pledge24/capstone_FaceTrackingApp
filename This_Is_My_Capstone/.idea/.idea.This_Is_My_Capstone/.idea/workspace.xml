@@ -5,10 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="193b53fc-98e1-40a8-ad96-211eb4695875" name="변경" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/bodytracking/BodyTest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/bodytracking/BodyTest.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/bodytracking/BoneController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/bodytracking/BoneController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.This_Is_My_Capstone/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.This_Is_My_Capstone/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/bodytracking/SetDebug.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/bodytracking/SetDebug.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,7 +16,11 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/FileLoad/FileLoader.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/bodytracking/SetDebug.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/bodytracking/StuffAction.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/bodytracking/SwitchCamera.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/bodytracking/UseParticle.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="2TsxTTbvfdKG5bfmg18Z02ULdht" />
   <component name="ProjectViewState">
@@ -42,7 +46,7 @@
     ]
   }
 }</component>
-  <component name="RunManager" selected="Unity 플레이어에 연결.iPhone">
+  <component name="RunManager" selected="Unity 에디터에 연결.Unity 에디터에 연결">
     <configuration name="유닛 테스트(배치 모드)" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="/Applications/Unity/Hub/Editor/2021.3.24f1/Unity.app/Contents/MacOS/Unity" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath $PROJECT_DIR$ -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
@@ -59,10 +63,10 @@
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <method v="2" />
     </configuration>
-    <configuration name="Unity 에디터에 연결" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Unity 에디터에 연결" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="675">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="675" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -103,6 +107,9 @@
       <updated>1691845602010</updated>
       <workItem from="1691845604547" duration="1589000" />
       <workItem from="1692010634020" duration="4977000" />
+      <workItem from="1692611667579" duration="3434000" />
+      <workItem from="1693220483648" duration="5142000" />
+      <workItem from="1693308479201" duration="3182000" />
     </task>
     <servers />
   </component>
@@ -119,120 +126,81 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/bodytracking/SetDebug.cs</url>
-          <line>29</line>
-          <properties documentPath="$PROJECT_DIR$/Assets/bodytracking/SetDebug.cs" initialLine="30" containingFunctionPresentation="메서드 'Update'">
-            <startOffsets>
-              <option value="707" />
-            </startOffsets>
-            <endOffsets>
-              <option value="736" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/bodytracking/SetDebug.cs</url>
-          <line>31</line>
-          <properties documentPath="$PROJECT_DIR$/Assets/bodytracking/SetDebug.cs" initialLine="32" containingFunctionPresentation="메서드 'Update'">
-            <startOffsets>
-              <option value="759" />
-            </startOffsets>
-            <endOffsets>
-              <option value="787" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/bodytracking/SetDebug.cs</url>
-          <line>33</line>
-          <properties documentPath="$PROJECT_DIR$/Assets/bodytracking/SetDebug.cs" initialLine="34" containingFunctionPresentation="메서드 'Update'">
-            <startOffsets>
-              <option value="818" />
-            </startOffsets>
-            <endOffsets>
-              <option value="834" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/bodytracking/SetDebug.cs</url>
-          <line>34</line>
-          <properties documentPath="$PROJECT_DIR$/Assets/bodytracking/SetDebug.cs" initialLine="35" containingFunctionPresentation="메서드 'Update'">
-            <startOffsets>
-              <option value="851" />
-            </startOffsets>
-            <endOffsets>
-              <option value="868" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/bodytracking/SetDebug.cs</url>
-          <line>38</line>
+          <line>43</line>
           <properties documentPath="$PROJECT_DIR$/Assets/bodytracking/SetDebug.cs" initialLine="39" containingFunctionPresentation="메서드 'Update'">
             <startOffsets>
-              <option value="930" />
+              <option value="1042" />
             </startOffsets>
             <endOffsets>
-              <option value="960" />
+              <option value="1072" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="14" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/bodytracking/SetDebug.cs</url>
-          <line>45</line>
-          <properties documentPath="$PROJECT_DIR$/Assets/bodytracking/SetDebug.cs" initialLine="45" containingFunctionPresentation="메서드 'Update'">
+          <url>file://$PROJECT_DIR$/Assets/bodytracking/CollisionAction.cs</url>
+          <line>16</line>
+          <properties documentPath="$PROJECT_DIR$/Assets/bodytracking/CollisionAction.cs" initialLine="15" containingFunctionPresentation="메서드 'OnCollisionEnter'">
             <startOffsets>
-              <option value="1082" />
+              <option value="345" />
             </startOffsets>
             <endOffsets>
-              <option value="1095" />
+              <option value="390" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="15" />
+          <option name="timeStamp" value="20" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/bodytracking/SetDebug.cs</url>
-          <line>49</line>
-          <properties documentPath="$PROJECT_DIR$/Assets/bodytracking/SetDebug.cs" initialLine="49" containingFunctionPresentation="메서드 'Update'">
+          <url>file://$PROJECT_DIR$/Assets/bodytracking/CollisionAction.cs</url>
+          <line>18</line>
+          <properties documentPath="$PROJECT_DIR$/Assets/bodytracking/CollisionAction.cs" initialLine="17" containingFunctionPresentation="메서드 'OnCollisionEnter'">
             <startOffsets>
-              <option value="1172" />
+              <option value="413" />
             </startOffsets>
             <endOffsets>
-              <option value="1209" />
+              <option value="428" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="17" />
+          <option name="timeStamp" value="21" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/bodytracking/SetDebug.cs</url>
-          <line>44</line>
-          <properties documentPath="$PROJECT_DIR$/Assets/bodytracking/SetDebug.cs" initialLine="44" containingFunctionPresentation="메서드 'Update'">
+          <url>file://$PROJECT_DIR$/Assets/bodytracking/StuffAction.cs</url>
+          <line>13</line>
+          <properties documentPath="$PROJECT_DIR$/Assets/bodytracking/StuffAction.cs" initialLine="23" containingFunctionPresentation="메서드 'OnCollisionEnter'">
             <startOffsets>
-              <option value="1028" />
+              <option value="272" />
             </startOffsets>
             <endOffsets>
-              <option value="1069" />
+              <option value="315" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="18" />
+          <option name="timeStamp" value="30" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/bodytracking/SetDebug.cs</url>
-          <line>50</line>
-          <properties documentPath="$PROJECT_DIR$/Assets/bodytracking/SetDebug.cs" initialLine="50" containingFunctionPresentation="메서드 'Update'">
+          <url>file://$PROJECT_DIR$/Assets/bodytracking/StuffAction.cs</url>
+          <line>15</line>
+          <properties documentPath="$PROJECT_DIR$/Assets/bodytracking/StuffAction.cs" initialLine="25" containingFunctionPresentation="메서드 'OnCollisionEnter'">
             <startOffsets>
-              <option value="1222" />
+              <option value="338" />
             </startOffsets>
             <endOffsets>
-              <option value="1262" />
+              <option value="353" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="19" />
+          <option name="timeStamp" value="31" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/bodytracking/CollisionAction.cs</url>
+          <line>19</line>
+          <properties documentPath="$PROJECT_DIR$/Assets/bodytracking/CollisionAction.cs" initialLine="19" containingFunctionPresentation="메서드 'OnTriggerEnter'">
+            <startOffsets>
+              <option value="441" />
+            </startOffsets>
+            <endOffsets>
+              <option value="476" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="42" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

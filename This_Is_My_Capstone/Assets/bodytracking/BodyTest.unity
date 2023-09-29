@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18025829, g: 0.22567949, b: 0.30687967, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -508,6 +508,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &499860152 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -5907023365618676607, guid: a8c0f1deadce94b9d84611c125e88ea2, type: 3}
+  m_PrefabInstance: {fileID: 902304771}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &499860154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 499860152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8aa64303cb6d7ea40bfe9d718cc46163, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &702637927
 GameObject:
   m_ObjectHideFlags: 0
@@ -619,6 +636,42 @@ PrefabInstance:
     - target: {fileID: -9018204871112941507, guid: a8c0f1deadce94b9d84611c125e88ea2, type: 3}
       propertyPath: m_AABB.m_Extent.z
       value: 0.0760048
+      objectReference: {fileID: 0}
+    - target: {fileID: -9018204871112941507, guid: a8c0f1deadce94b9d84611c125e88ea2, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.size
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: -9018204871112941507, guid: a8c0f1deadce94b9d84611c125e88ea2, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[1]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -9018204871112941507, guid: a8c0f1deadce94b9d84611c125e88ea2, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[43]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -9018204871112941507, guid: a8c0f1deadce94b9d84611c125e88ea2, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[44]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -9018204871112941507, guid: a8c0f1deadce94b9d84611c125e88ea2, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[45]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -9018204871112941507, guid: a8c0f1deadce94b9d84611c125e88ea2, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[46]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -9018204871112941507, guid: a8c0f1deadce94b9d84611c125e88ea2, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[47]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -9018204871112941507, guid: a8c0f1deadce94b9d84611c125e88ea2, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[48]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -9018204871112941507, guid: a8c0f1deadce94b9d84611c125e88ea2, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[49]
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -5694092435888646316, guid: a8c0f1deadce94b9d84611c125e88ea2, type: 3}
       propertyPath: m_DirtyAABB

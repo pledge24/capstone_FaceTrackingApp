@@ -457,7 +457,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1077,7 +1077,7 @@ VideoPlayer:
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
-  m_TargetTexture: {fileID: 8400000, guid: d81030825dfec2b48b93534ba62678c1, type: 2}
+  m_TargetTexture: {fileID: 8400000, guid: 7133bb6dfa552444086d2c1e00de35b5, type: 2}
   m_TimeReference: 0
   m_TargetMaterialRenderer: {fileID: 0}
   m_TargetMaterialProperty: <noninit>
@@ -1753,6 +1753,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1134900102}
+  - {fileID: 1432237086}
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2400,9 +2401,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 336572327}
-        m_TargetAssemblyTypeName: canversmovescript, Assembly-CSharp
-        m_MethodName: pushhedButton
+      - m_Target: {fileID: 1094738576}
+        m_TargetAssemblyTypeName: rawimagecon, Assembly-CSharp
+        m_MethodName: ChangeTexture
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2785,9 +2786,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 336572327}
-        m_TargetAssemblyTypeName: canversmovescript, Assembly-CSharp
-        m_MethodName: pushhedButton
+      - m_Target: {fileID: 1671298929}
+        m_TargetAssemblyTypeName: camcam, Assembly-CSharp
+        m_MethodName: AdjustViewport
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2914,6 +2915,7 @@ GameObject:
   - component: {fileID: 1094738573}
   - component: {fileID: 1094738575}
   - component: {fileID: 1094738574}
+  - component: {fileID: 1094738576}
   m_Layer: 5
   m_Name: RawImage
   m_TagString: Untagged
@@ -2976,6 +2978,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1094738572}
   m_CullTransparentMesh: 1
+--- !u!114 &1094738576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1094738572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ce7de14e822e47a48ad661613d96fc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newTexture1: {fileID: 8400000, guid: d81030825dfec2b48b93534ba62678c1, type: 2}
+  newTexture2: {fileID: 8400000, guid: 7133bb6dfa552444086d2c1e00de35b5, type: 2}
+  newTexture3: {fileID: 8400000, guid: fbe999a848fe8427caeaf88904c04ef0, type: 2}
 --- !u!1 &1134788820
 GameObject:
   m_ObjectHideFlags: 0
@@ -3162,7 +3179,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uBC30\uACBD \uC120\uD0DD"
+  m_Text: "\uBC30\uACBD \uBCC0\uACBD"
 --- !u!222 &1190280665
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3761,6 +3778,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1349021344}
   m_CullTransparentMesh: 1
+--- !u!1 &1432237085
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1432237086}
+  m_Layer: 0
+  m_Name: GameObject (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1432237086
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1432237085}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 645367414}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1477155017
 GameObject:
   m_ObjectHideFlags: 0
@@ -3896,6 +3944,7 @@ GameObject:
   - component: {fileID: 1671298926}
   - component: {fileID: 1671298925}
   - component: {fileID: 1671298924}
+  - component: {fileID: 1671298929}
   m_Layer: 0
   m_Name: AR Camera
   m_TagString: MainCamera
@@ -4012,6 +4061,22 @@ Transform:
   m_Father: {fileID: 349596983}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1671298929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1671298922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c34d7d2ff623041e98d2b4e2abda7a86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  left: 0
+  right: 1
+  bottom: 0
+  top: 1
 --- !u!1 &1683424632
 GameObject:
   m_ObjectHideFlags: 0
@@ -4416,7 +4481,7 @@ VideoPlayer:
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
-  m_TargetTexture: {fileID: 8400000, guid: d81030825dfec2b48b93534ba62678c1, type: 2}
+  m_TargetTexture: {fileID: 8400000, guid: fbe999a848fe8427caeaf88904c04ef0, type: 2}
   m_TimeReference: 0
   m_TargetMaterialRenderer: {fileID: 0}
   m_TargetMaterialProperty: <noninit>

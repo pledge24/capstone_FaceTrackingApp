@@ -946,7 +946,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.8443396, g: 0.9723995, b: 1, a: 0.7607843}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1181,7 +1181,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 432899862}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1134900103}
+        m_TargetAssemblyTypeName: canversmovescript2, Assembly-CSharp
+        m_MethodName: pushhedButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &432899862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1866,7 +1878,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.7253471, g: 0.9433962, b: 0.86579114, a: 0.92156863}
+  m_Color: {r: 0.8443396, g: 0.9723995, b: 1, a: 0.7607843}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2426,7 +2438,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.7254902, g: 0.94509804, b: 0.8666667, a: 1}
+  m_Color: {r: 0.8443396, g: 0.9723995, b: 1, a: 0.7607843}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2811,7 +2823,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.7254902, g: 0.94509804, b: 0.8666667, a: 1}
+  m_Color: {r: 0.8443396, g: 0.9723995, b: 1, a: 0.7607843}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3082,6 +3094,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1134900102}
+  - component: {fileID: 1134900103}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -3108,6 +3121,22 @@ Transform:
   m_Father: {fileID: 645367414}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1134900103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1134900101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19f44130095e9410fb64356c5ed6192f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetRectTransform: {fileID: 62410626}
+  x: {x: 0, y: 0}
+  y: {x: 0, y: 0}
+  lerpTime: 0
 --- !u!1 &1190280662
 GameObject:
   m_ObjectHideFlags: 0
@@ -3311,7 +3340,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.8443396, g: 0.9723995, b: 1, a: 0.7607843}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4332,7 +4361,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.8443396, g: 0.9723995, b: 1, a: 0.7607843}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

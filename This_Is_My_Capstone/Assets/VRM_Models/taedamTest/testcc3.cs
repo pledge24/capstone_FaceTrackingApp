@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class testcc: MonoBehaviour
+public class testcc3: MonoBehaviour
 {
     [SerializeField] Transform A;
     [SerializeField] Transform B;

@@ -6,6 +6,6 @@ using UnityEngine.SceneManagement;
 public class startbutton : MonoBehaviour
 {
 	public void SceneChange(){
-		SceneManager.LoadScene("second");
+		SceneManager.LoadScene("MelonV4");
 	}
 }

@@ -20,18 +20,21 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/MelonV3.unity
     guid: 2c965a3c589144fee837144af669df6d
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MelonV4.unity
     guid: 4014f8510a3174083ab9e6fb2b69d751
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MelonV4_folder/second.unity
     guid: b9186282eb8a15c408be9ab04ba29755
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MelonV4_folder/startSence.unity
     guid: efbaf6d6dc477b8459352afc6b03ab49
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MelonV4_folder/third.unity
     guid: 2895ba004289be6458f0cc73b8e4e16b
+  - enabled: 1
+    path: Assets/Scenes/MelonV4_folder/MelonV4 1.unity
+    guid: eecac85185bf0a349b89d261c6fa866d
   m_configObjects:
     UnityEditor.XR.ARKit.ARKitSettings: {fileID: 11400000, guid: 2b977acad209545ee846795928c1af62, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 38c306125d7014125b1e3343709fa58b, type: 2}

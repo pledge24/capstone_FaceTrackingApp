@@ -79,16 +79,16 @@ public class ARFaceBlendShapeVisualizerV3 : MonoBehaviour
 
     private void OnARSessionStateChanged(ARSessionStateChangedEventArgs args)
     {
-        if(args.state > ARSessionState.Ready && _arFace.trackingState == UnityEngine.XR.ARSubsystems.TrackingState.Tracking)
+        if (args.state > ARSessionState.Ready && _arFace.trackingState == UnityEngine.XR.ARSubsystems.TrackingState.Tracking)
         {
-            foreach(var characterRenderer in _characterRenderers)
+            foreach (var characterRenderer in _characterRenderers)
             {
                 characterRenderer.enabled = true;
             }
         }
         else
         {
-            foreach(var characterRenderer in _characterRenderers)
+            foreach (var characterRenderer in _characterRenderers)
             {
                 characterRenderer.enabled = false;
             }
@@ -122,8 +122,8 @@ public class ARFaceBlendShapeVisualizerV3 : MonoBehaviour
     {
         var blendShapeCofficients
             = _arKitFaceSubsystem.GetBlendShapeCoefficients(_arFace.trackableId, Allocator.Temp);
-        
-        foreach(var blendShapeCoefficient in blendShapeCofficients)
+
+        foreach (var blendShapeCoefficient in blendShapeCofficients)
         {
             var blendShapeLocation = blendShapeCoefficient.blendShapeLocation;
 
@@ -143,14 +143,14 @@ public class ARFaceBlendShapeVisualizerV3 : MonoBehaviour
 
     public void changeOffset()
     {
-     
+
         foreach (ARFace face in _arFaceManager.trackables)
         {
             _offsetObj.transform.localRotation = face.transform.rotation;
 
             break;
         }
-        
+
     }
 
     public void initialize_lookforward()
@@ -161,14 +161,14 @@ public class ARFaceBlendShapeVisualizerV3 : MonoBehaviour
     public void callBack_lookforward()
     {
         _offsetObj.transform.localRotation = Quaternion.identity;
-       
+
     }
 
     void Update()
     {
         Apply();                            // Apply BlendShape Coefficient to Character BlendShape Key.
         Print_Transformation_Data();        // Print Dev data.
-    }   
+    }
 
     private void Apply()
     {
@@ -185,10 +185,10 @@ public class ARFaceBlendShapeVisualizerV3 : MonoBehaviour
     private void ApplyEyeBlink()
     {
         var leftBlinkValue = _arKitBlendShapeValueTable[ARKitBlendShapeLocation.EyeBlinkLeft];
-       faceMeshRenderer.SetBlendShapeWeight(BlendShapeIndexLeftEyeBlink, leftBlinkValue);
+        faceMeshRenderer.SetBlendShapeWeight(BlendShapeIndexLeftEyeBlink, leftBlinkValue);
 
         var rightBlinkValue = _arKitBlendShapeValueTable[ARKitBlendShapeLocation.EyeBlinkRight];
-       faceMeshRenderer.SetBlendShapeWeight(BlendShapeIndexRightEyeBlink, rightBlinkValue);
+        faceMeshRenderer.SetBlendShapeWeight(BlendShapeIndexRightEyeBlink, rightBlinkValue);
 
     }
 
@@ -203,7 +203,7 @@ public class ARFaceBlendShapeVisualizerV3 : MonoBehaviour
         var UpEyeMovementValue = _arKitBlendShapeValueTable[ARKitBlendShapeLocation.EyeLookUpLeft];
         faceMeshRenderer.SetBlendShapeWeight(BlendShapeIndexLookUp, UpEyeMovementValue);
 
-        var downEyeMovementValue = _arKitBlendShapeValueTable[ARKitBlendShapeLocation.EyeLookDownLeft];       
+        var downEyeMovementValue = _arKitBlendShapeValueTable[ARKitBlendShapeLocation.EyeLookDownLeft];
         faceMeshRenderer.SetBlendShapeWeight(BlendShapeIndexLookDown, downEyeMovementValue);
     }
 
@@ -236,7 +236,7 @@ public class ARFaceBlendShapeVisualizerV3 : MonoBehaviour
     }
 
     private void Print_Transformation_Data()
-    { 
+    {
 
         // Print text About Person's head, Character's head Pos & Rot.
         t_text.text = "====person's pos and rot====\n";
@@ -255,7 +255,7 @@ public class ARFaceBlendShapeVisualizerV3 : MonoBehaviour
         string str7 = string.Format("====offset rotation====");
         string str8 = string.Format("rx: {0:F2} ry: {1:F2} rz: {2:F2}", _offsetObj.transform.localEulerAngles.x, _offsetObj.transform.localEulerAngles.y, _offsetObj.transform.localEulerAngles.z);
         t_text.text += "\n" + str7 + "\n" + str8;
- 
+
     }
 
 

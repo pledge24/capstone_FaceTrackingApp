@@ -15,6 +15,9 @@ public class camcam1 : MonoBehaviour
     private float zoomSpeed = 0.01f; // 조정 가능한 줌 속도
     private Vector2 initialTouchPosition; // 초기 터치 위치
 
+    private float minFOV = -2f;
+    private float maxFOV = 0.35f;
+
     void Update()
     {
         if (Input.touchCount == 2)
@@ -31,7 +34,7 @@ public class camcam1 : MonoBehaviour
             else if (touch1.phase == TouchPhase.Moved || touch2.phase == TouchPhase.Moved)
             {
                 // 손가락 간 거리 변화에 따라 카메라 줌 조절
-                float deltaDistance = currentDistance - initialDistance;
+                float deltaDistance = initialDistance - currentDistance ;
                 Zoom(deltaDistance);
             }
         }
@@ -59,10 +62,11 @@ public class camcam1 : MonoBehaviour
     }
     void Zoom(float delta)
     {
+        //mainCamera.transform.position.z
         mainCamera.fieldOfView += delta * zoomSpeed;
         // 필요한 경우 최소/최대 제한을 추가할 수 있습니다.
-        // if (Camera.main.fieldOfView < minFOV) Camera.main.fieldOfView = minFOV;
-        // if (Camera.main.fieldOfView > maxFOV) Camera.main.fieldOfView = maxFOV;
+        if (Camera.main.fieldOfView < minFOV) Camera.main.fieldOfView = minFOV;
+        if (Camera.main.fieldOfView > maxFOV) Camera.main.fieldOfView = maxFOV;
     }
     void RotateCamera(float x, float y)
     {

@@ -34,5 +34,6 @@ public class SetRotationOffsetProtoScript : MonoBehaviour
         deltaRotation = currentRotation * Quaternion.Inverse(originalRotation);
 
         targetObject.transform.rotation = deltaRotation * targetRotation;
+        Debug.Log(deltaRotation);
     }
 }

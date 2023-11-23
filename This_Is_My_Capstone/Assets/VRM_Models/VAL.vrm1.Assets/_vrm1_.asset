@@ -1,0 +1,90 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88684271e27adb843b6570957c9e7637, type: 3}
+  m_Name: _vrm1_
+  m_EditorClassIdentifier: 
+  m_prefab: {fileID: -1728013695380148634, guid: 6340edf9b61004bc2af21279653dfe13, type: 3}
+  Meta:
+    Name: VAL1.2_VRoidVRM
+    Version: 1.2
+    Authors:
+    - "\u3057\u3089\u3068\u308A\u3053\u306F\u306D"
+    CopyrightInformation: 
+    ContactInformation: shiratori.kohane@gmail.com
+    References: []
+    ThirdPartyLicenses: 
+    Thumbnail: {fileID: 2178681595258467215, guid: 6340edf9b61004bc2af21279653dfe13, type: 3}
+    AvatarPermission: 2
+    ViolentUsage: 1
+    SexualUsage: 1
+    CommercialUsage: 1
+    PoliticalOrReligiousUsage: 0
+    AntisocialOrHateUsage: 0
+    CreditNotation: 0
+    Redistribution: 0
+    Modification: 0
+    OtherLicenseUrl: 
+  Expression:
+    Happy: {fileID: 11400000, guid: 78221666c43cf4ed1aa22902be94a262, type: 2}
+    Angry: {fileID: 11400000, guid: 93f22f73157d74efaa318b9976f05d64, type: 2}
+    Sad: {fileID: 11400000, guid: 9d66e177220574706bbd9788d5b92a59, type: 2}
+    Relaxed: {fileID: 11400000, guid: 4754b69aac0da4a19949be2bf1903383, type: 2}
+    Surprised: {fileID: 11400000, guid: dc70fa2bf37334d7cba447721bd325d9, type: 2}
+    Aa: {fileID: 11400000, guid: cdcaaec8999de49a89d8acce14776509, type: 2}
+    Ih: {fileID: 11400000, guid: 021fb13179452417cab5da220472d1ae, type: 2}
+    Ou: {fileID: 11400000, guid: f442bba61d2e34a7d92101acc484fbac, type: 2}
+    Ee: {fileID: 11400000, guid: 6f58b36ca237b4970937ecade3eb4360, type: 2}
+    Oh: {fileID: 11400000, guid: 9a5b4035d99924a068305f41f7dea6a6, type: 2}
+    Blink: {fileID: 11400000, guid: 2815b00eb2138416497787d8b571e109, type: 2}
+    BlinkLeft: {fileID: 11400000, guid: 6d662529656294651b49e4b6ab9e9f5d, type: 2}
+    BlinkRight: {fileID: 11400000, guid: 14e2553942a0e482f86ec6ff74ba9ddc, type: 2}
+    LookUp: {fileID: 11400000, guid: 9aa3e52293095453b969f0569a30c6a9, type: 2}
+    LookDown: {fileID: 11400000, guid: 6a1423524e16341b9ae9bdbf04967f82, type: 2}
+    LookLeft: {fileID: 11400000, guid: b4d8e25fc4e5442a7b80fd76f1d9fd7f, type: 2}
+    LookRight: {fileID: 11400000, guid: 2f0e4f35b7c0f410f8e49982ac95a308, type: 2}
+    Neutral: {fileID: 11400000, guid: e1b33d5dfa0764e10b7d118b6fad677b, type: 2}
+    CustomClips: []
+  LookAt:
+    OffsetFromHead: {x: -0, y: 0, z: 0}
+    LookAtType: 0
+    HorizontalOuter:
+      CurveXRangeDegree: 90
+      CurveYRangeDegree: 4
+    HorizontalInner:
+      CurveXRangeDegree: 90
+      CurveYRangeDegree: 4
+    VerticalDown:
+      CurveXRangeDegree: 90
+      CurveYRangeDegree: 4
+    VerticalUp:
+      CurveXRangeDegree: 90
+      CurveYRangeDegree: 3
+  FirstPerson:
+    Renderers:
+    - Renderer: Body
+      FirstPersonFlag: 0
+    - Renderer: Body2
+      FirstPersonFlag: 0
+    - Renderer: Cats_ear
+      FirstPersonFlag: 0
+    - Renderer: Hair
+      FirstPersonFlag: 0
+    - Renderer: Hoodie
+      FirstPersonFlag: 0
+    - Renderer: Pants
+      FirstPersonFlag: 0
+    - Renderer: Ponytail
+      FirstPersonFlag: 0
+    - Renderer: Shoes
+      FirstPersonFlag: 0
+    - Renderer: Tail
+      FirstPersonFlag: 0

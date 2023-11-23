@@ -5,18 +5,20 @@ using UnityEngine.XR.ARFoundation;
 
 public class TouchPadButton : MonoBehaviour
 {
-    public Text toggle_text;
-    public Text debug_text;
+    [SerializeField] private Text toggle_text;
+    [SerializeField] private Text debug_text;
+    [SerializeField] private ARFaceManager _arFaceManager;
+    [SerializeField] private MeshRenderer originalCube_meshRenderer;
+    [SerializeField] private MeshRenderer applyOffsetCube_meshRenderer;
 
     private bool isToggled = false;
-
-    public ARFaceManager _arFaceManager;
 
     private void Start()
     {
         // 디버그 테스트 비활성화한 상태로 시작합니다. 
         debug_text.enabled = false;
-        
+        originalCube_meshRenderer.enabled = false;
+        applyOffsetCube_meshRenderer.enabled = false;
     }
 
     public void OnOffDevelopmentMode()
@@ -28,6 +30,8 @@ public class TouchPadButton : MonoBehaviour
         toggle_text.text = "DebugMode: ";
         toggle_text.text += isToggled ? "On" : "Off";
         debug_text.enabled = isToggled;
+        originalCube_meshRenderer.enabled = isToggled;
+        applyOffsetCube_meshRenderer.enabled = isToggled;
 
         foreach (ARFace face in _arFaceManager.trackables)
         {

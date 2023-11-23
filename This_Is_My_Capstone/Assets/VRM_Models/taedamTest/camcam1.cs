@@ -12,7 +12,7 @@ public class camcam1 : MonoBehaviour
     private Camera mainCamera;
     private bool flagcam = true;
     private float initialDistance; // 초기 손가락 간 거리
-    private float zoomSpeed = 0.1f; // 조정 가능한 줌 속도
+    private float zoomSpeed = 0.01f; // 조정 가능한 줌 속도
     private Vector2 initialTouchPosition; // 초기 터치 위치
 
     void Update()
@@ -67,7 +67,7 @@ public class camcam1 : MonoBehaviour
     void RotateCamera(float x, float y)
     {
         // 카메라 회전 로직을 구현하세요.
-        transform.Rotate(Vector3.up * x * 0.1f);
-        transform.Rotate(Vector3.left * y * 0.2f);
+        transform.Rotate(Vector3.up * x * 0.01f);
+        //transform.Rotate(Vector3.left * y * 0.01f);
     }
 }

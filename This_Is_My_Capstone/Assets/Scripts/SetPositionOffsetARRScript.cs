@@ -6,6 +6,7 @@ using UnityEngine;
 public class SetPositionOffsetARRScript : MonoBehaviour
 {  
     [SerializeField] private float Weight = 0.5f;           // z좌표값 적용 가중치
+    [SerializeField] GameObject stage;
     private float test_weight = 1.0f;
 
     static private Transform curr_character_rig;
@@ -35,6 +36,8 @@ public class SetPositionOffsetARRScript : MonoBehaviour
         characterIndex = id;
         curr_character_rig = CI[characterIndex].GetRig_Transform();
         curr_character_body = CI[characterIndex].GetModel();
+
+        stage.transform.position = defaultHeadPositions[characterIndex];
 
         //curr_character_body.transform.position.Set(0, 0, 0);
         Debug.Log(string.Format("{0:F2}, {1:F2}, {2:F2} ", stage_position.x, stage_position.y, stage_position.z));

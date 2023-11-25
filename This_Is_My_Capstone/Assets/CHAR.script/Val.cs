@@ -9,6 +9,7 @@ public class Val : MonoBehaviour, CharacterInterface
 
     [SerializeField] private SkinnedMeshRenderer faceMeshRenderer;
     [SerializeField] private GameObject model;
+    [SerializeField] private GameObject head;
     [SerializeField] private Transform Rig_transform;
 
     public Val()
@@ -51,6 +52,7 @@ public class Val : MonoBehaviour, CharacterInterface
 
     public SkinnedMeshRenderer GetfaceMeshRenderer() { return faceMeshRenderer; }
     public GameObject GetModel() { return model; }
+    public GameObject GetHead() { return head; }
     public Transform GetRig_Transform() { return Rig_transform; }
     public Dictionary<string, int> GetBlendshapeTable() { return _characterBlendshapeIndexTable; }
 }

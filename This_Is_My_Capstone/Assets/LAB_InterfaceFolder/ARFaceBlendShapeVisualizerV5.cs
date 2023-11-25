@@ -35,17 +35,16 @@ public class ARFaceBlendShapeVisualizerV5 : MonoBehaviour {
     // ====== New Code ===========
 
     static private SkinnedMeshRenderer faceMeshRenderer;
-    private Transform T_rig;
+    private static Transform T_rig;
     private GameObject model;
-    private Transform model_root;
+    private static Transform model_root;
+    private Transform model_head;
     static Dictionary<string, int> _characterBlendshapeIndexTable;
 
     private CharacterInterface[] CI;
     public int CharacterIndex = 0;
 
     private int previous_active_character_ID = 0;
-
-    private bool first_update = true;
 
     // Start is called before the first frame update
     void Start()
@@ -58,7 +57,9 @@ public class ARFaceBlendShapeVisualizerV5 : MonoBehaviour {
         T_rig = CI[0].GetRig_Transform();
         model = CI[0].GetModel();
         model_root = CI[0].GetModel().GetComponent<Transform>();
+        model_head = CI[0].GetHead().GetComponent<Transform>();
         _characterBlendshapeIndexTable = CI[0].GetBlendshapeTable();
+
 
         Debug.Log("코마치의 데이터를 정상적으로 불러왔습니다. 불러온 블렌드쉐입을 출력합니다\n");
 
@@ -84,9 +85,6 @@ public class ARFaceBlendShapeVisualizerV5 : MonoBehaviour {
         // == model code == 
         _characterRenderers = model_root.GetComponentsInChildren<Renderer>();
 
-        
-
-        
         // ======================== Cube Set Code =======================
         originalCubePosition = originalTransCube.transform.position;
         headRotation = T_rig.rotation;
@@ -95,6 +93,8 @@ public class ARFaceBlendShapeVisualizerV5 : MonoBehaviour {
         script_rotOffset = originalTransCube.GetComponentInChildren<SetRotationOffsetScript>();
 
         cubePositionOffset = Vector3.zero;
+
+        
 
         // ======================= Default ARKit Set Code ================
         //_characterRenderers = GetComponentsInChildren<Renderer>();
@@ -331,42 +331,22 @@ public class ARFaceBlendShapeVisualizerV5 : MonoBehaviour {
 
     }
 
-    public void Switch_Character()
-    {
-        //Debug.Log("Switch_Character 함수에 진입 성공. 캐릭터 스위칭을 진행합니다\n");
-
-        //model.SetActive(false);
-
-        CharacterIndex = (CharacterIndex + 1) % CI.Length;
-        //Debug.Log("test다\n");
-        faceMeshRenderer = CI[CharacterIndex].GetfaceMeshRenderer();
-        T_rig = CI[CharacterIndex].GetRig_Transform();
-        model = CI[CharacterIndex].GetModel();
-        //model.SetActive(true);
-        model_root = CI[CharacterIndex].GetModel().GetComponent<Transform>();
-        _characterBlendshapeIndexTable = CI[CharacterIndex].GetBlendshapeTable();
-
-        //foreach (string key in _characterBlendshapeIndexTable.Keys)
-        //{
-        //    Debug.Log(string.Format(key + ": {0}\n", _characterBlendshapeIndexTable[key]));
-        //}
-
-        //Debug.Log(string.Format("캐릭터가 정상적으로 스위칭되었습니다. 현재캐릭터 Index: {0}\n", CharacterIndex));
-
-    }
-
     public void Switch_Character_to_ID(int id)
     {
         //Debug.Log("Switch_Character 함수에 진입 성공. 캐릭터 스위칭을 진행합니다\n");
 
         model.SetActive(false);
+        Set_Expression_default();
+        
         previous_active_character_ID = id;
         CharacterIndex = id;
+
         // DEBUG PRINT
         // Debug.Log("test다\n");
         faceMeshRenderer = CI[CharacterIndex].GetfaceMeshRenderer();
         T_rig = CI[CharacterIndex].GetRig_Transform();
         model = CI[CharacterIndex].GetModel();
+        model_head = CI[CharacterIndex].GetHead().transform;
         model.SetActive(true);
         model_root = CI[CharacterIndex].GetModel().GetComponent<Transform>();
         _characterBlendshapeIndexTable = CI[CharacterIndex].GetBlendshapeTable();
@@ -378,7 +358,6 @@ public class ARFaceBlendShapeVisualizerV5 : MonoBehaviour {
         //}
 
         //Debug.Log(string.Format("캐릭터가 정상적으로 스위칭되었습니다. 현재캐릭터 Index: {0}\n", CharacterIndex));
-
     }
 
     private void Set_Blendshapes_zero()
@@ -408,7 +387,6 @@ public class ARFaceBlendShapeVisualizerV5 : MonoBehaviour {
 
     public void Set_Expression_happy()
     {
-        Debug.Log("happyhappyhappy~~~");
         Set_Expression_default();
 
         faceMeshRenderer.SetBlendShapeWeight(_characterBlendshapeIndexTable["BlendShapeIndexLeftEyeBlink"], 0.0f);

@@ -12,6 +12,7 @@ public interface CharacterInterface
     //void SetupCharacterBlendShapeTable();
     SkinnedMeshRenderer GetfaceMeshRenderer();
     GameObject GetModel();
+    GameObject GetHead();
     Transform GetRig_Transform();
     Dictionary<string, int> GetBlendshapeTable();
 }

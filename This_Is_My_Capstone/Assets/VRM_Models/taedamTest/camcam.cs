@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class camcam : MonoBehaviour
 {
-    [SerializeField] private float left = 0.0f;
-    [SerializeField] private float right = 1.0f;
-    [SerializeField] private float bottom = 0.0f;
-    [SerializeField] private float top = 1.0f;
+    private float left = 0.0f;
+    // private float right = 1.0f;
+    private float bottom = 0.0f;
+    // private float top = 1.0f;
 
     private Camera mainCamera;
     private bool flagcam = true;

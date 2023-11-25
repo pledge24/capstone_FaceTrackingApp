@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class rawimagecon : MonoBehaviour
 {
     // Start is called before the first frame update
+    public GameObject uiElement;
     RawImage rawImage; // Raw Image 컴포넌트
     public Texture newTexture1; // 변경할 텍스처
     public Texture newTexture2; // 변경할 텍스처
@@ -36,5 +37,13 @@ public class rawimagecon : MonoBehaviour
             flagtextture = 1;
         }
         
+    }
+
+    public void HideUIElement()
+    {
+        if (uiElement != null)
+        {
+            uiElement.SetActive(false);
+        }
     }
 }

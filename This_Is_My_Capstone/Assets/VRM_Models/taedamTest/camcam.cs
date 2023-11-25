@@ -10,7 +10,7 @@ public class camcam : MonoBehaviour
     // private float top = 1.0f;
 
     private Camera mainCamera;
-    private bool flagcam = true;
+    private bool flagcam = false;
 
     private void Start()
     {

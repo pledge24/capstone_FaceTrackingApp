@@ -1,0 +1,11 @@
+Model Information:
+* title:	Blood Blossom Grove
+* source:	https://sketchfab.com/3d-models/blood-blossom-grove-aa6b814c5c2e4438ad89177c152a51f0
+* author:	JacksonMGB (https://sketchfab.com/JacksonMGB)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Blood Blossom Grove" (https://sketchfab.com/3d-models/blood-blossom-grove-aa6b814c5c2e4438ad89177c152a51f0) by JacksonMGB (https://sketchfab.com/JacksonMGB) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

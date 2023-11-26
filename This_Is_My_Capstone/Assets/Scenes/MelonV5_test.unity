@@ -23048,6 +23048,7 @@ GameObject:
   - component: {fileID: 898790707}
   - component: {fileID: 898790706}
   - component: {fileID: 898790705}
+  - component: {fileID: 898790708}
   m_Layer: 5
   m_Name: OnOffmusicButton (1)
   m_TagString: Untagged
@@ -23120,9 +23121,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 645367415}
-        m_TargetAssemblyTypeName: musiconoff, Assembly-CSharp
-        m_MethodName: ToggleAudio
+      - m_Target: {fileID: 898790708}
+        m_TargetAssemblyTypeName: startbutton, Assembly-CSharp
+        m_MethodName: SceneChange
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -23170,6 +23171,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 898790703}
   m_CullTransparentMesh: 1
+--- !u!114 &898790708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 898790703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41a3bc4ff897035408d8084c2ff854a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &898829657
 GameObject:
   m_ObjectHideFlags: 0

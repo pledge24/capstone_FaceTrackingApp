@@ -1,0 +1,11 @@
+Model Information:
+* title:	Vaporwave Tokyo: Sketchfab 3D Editor Challenge
+* source:	https://sketchfab.com/3d-models/vaporwave-tokyo-sketchfab-3d-editor-challenge-4eba49b0f6f54ade836a565d98247723
+* author:	William Domeyer (https://sketchfab.com/WilliamDomeyer)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Vaporwave Tokyo: Sketchfab 3D Editor Challenge" (https://sketchfab.com/3d-models/vaporwave-tokyo-sketchfab-3d-editor-challenge-4eba49b0f6f54ade836a565d98247723) by William Domeyer (https://sketchfab.com/WilliamDomeyer) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

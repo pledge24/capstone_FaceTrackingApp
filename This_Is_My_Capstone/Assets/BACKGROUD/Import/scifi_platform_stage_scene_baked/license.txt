@@ -1,0 +1,11 @@
+Model Information:
+* title:	scifi platform stage scene baked
+* source:	https://sketchfab.com/3d-models/scifi-platform-stage-scene-baked-64adb59a716d43e5a8705ff6fe86c0ce
+* author:	McWinterL (https://sketchfab.com/winterlea)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "scifi platform stage scene baked" (https://sketchfab.com/3d-models/scifi-platform-stage-scene-baked-64adb59a716d43e5a8705ff6fe86c0ce) by McWinterL (https://sketchfab.com/winterlea) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

@@ -38,6 +38,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MelonV5_test.unity
     guid: c5c8fe0da676f432b91f70c3f41eb22b
+  - enabled: 1
+    path: Assets/Scenes/BodyTestV5.unity
+    guid: 2a57666a1b01f72408acf35845c596b9
   m_configObjects:
     UnityEditor.XR.ARKit.ARKitSettings: {fileID: 11400000, guid: 2b977acad209545ee846795928c1af62, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 38c306125d7014125b1e3343709fa58b, type: 2}

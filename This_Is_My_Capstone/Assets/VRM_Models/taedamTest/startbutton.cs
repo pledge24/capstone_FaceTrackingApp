@@ -6,6 +6,6 @@ using UnityEngine.SceneManagement;
 public class startbutton : MonoBehaviour
 {
 	public void SceneChange(){
-		SceneManager.LoadScene("BodyTest");
+		SceneManager.LoadScene("BodyTestV5");
 	}
 }

@@ -1,0 +1,84 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88684271e27adb843b6570957c9e7637, type: 3}
+  m_Name: _vrm1_
+  m_EditorClassIdentifier: 
+  m_prefab: {fileID: -1728013695380148634, guid: a8c0f1deadce94b9d84611c125e88ea2, type: 3}
+  Meta:
+    Name: Elaina - Casual Version
+    Version: 1.0
+    Authors:
+    - Antro
+    CopyrightInformation: 
+    ContactInformation: contactantro@gmail.com
+    References: []
+    ThirdPartyLicenses: 
+    Thumbnail: {fileID: 2800000, guid: 42b2f7c0dc409420397f3b7bc0edad4d, type: 3}
+    AvatarPermission: 2
+    ViolentUsage: 0
+    SexualUsage: 0
+    CommercialUsage: 0
+    PoliticalOrReligiousUsage: 0
+    AntisocialOrHateUsage: 0
+    CreditNotation: 0
+    Redistribution: 0
+    Modification: 0
+    OtherLicenseUrl: 
+  Expression:
+    Happy: {fileID: 11400000, guid: 0639333942ccf402a8ab68e1e4aa354d, type: 2}
+    Angry: {fileID: 11400000, guid: 68f95d0a4358c46d7bcb9642dc5909bd, type: 2}
+    Sad: {fileID: 11400000, guid: 89e4c933901b74e7dab6d4ed6a18683c, type: 2}
+    Relaxed: {fileID: 11400000, guid: a9a229585c0ba4b93ab895ab42e56e98, type: 2}
+    Surprised: {fileID: 11400000, guid: d67767dc3ae3147edaf60b1f0056b746, type: 2}
+    Aa: {fileID: 11400000, guid: f634cbe418c7c4b7aa1cff7a1cfc557f, type: 2}
+    Ih: {fileID: 11400000, guid: 0610b706d2038497b97fc614a81bb030, type: 2}
+    Ou: {fileID: 11400000, guid: d4e940a8fa96b485b8accda12c9d0802, type: 2}
+    Ee: {fileID: 11400000, guid: 9d32e040788d641bcbaa0e36855a7992, type: 2}
+    Oh: {fileID: 11400000, guid: 59bc347cb36dd4fbda3a5dd6eee6c94b, type: 2}
+    Blink: {fileID: 11400000, guid: e986e3e91ba964c23ae49d1cf41b26ad, type: 2}
+    BlinkLeft: {fileID: 11400000, guid: 826a809c2559c4490a24424a6797b71c, type: 2}
+    BlinkRight: {fileID: 11400000, guid: d182970de5ff04de5b7104ba285e2e60, type: 2}
+    LookUp: {fileID: 11400000, guid: 6e49b6d790e7d4ae0999d2eca7b2ff2f, type: 2}
+    LookDown: {fileID: 11400000, guid: 825c126bd469743ac9b37998164fcdff, type: 2}
+    LookLeft: {fileID: 11400000, guid: 4e918f6200b9c462bb82a6a8c9d90b2b, type: 2}
+    LookRight: {fileID: 11400000, guid: 208f38770764c4d41bc84dbbf22e82a6, type: 2}
+    Neutral: {fileID: 11400000, guid: 0c9aba5efd2a24355a3a870eacdedc64, type: 2}
+    CustomClips:
+    - {fileID: 11400000, guid: d522017f0dca44822a15f91846098127, type: 2}
+    - {fileID: 11400000, guid: 68c1749e047be4029b49f6456e3c1073, type: 2}
+  LookAt:
+    OffsetFromHead: {x: -0, y: 0, z: 0}
+    LookAtType: 0
+    HorizontalOuter:
+      CurveXRangeDegree: 90
+      CurveYRangeDegree: 35
+    HorizontalInner:
+      CurveXRangeDegree: 90
+      CurveYRangeDegree: 35
+    VerticalDown:
+      CurveXRangeDegree: 90
+      CurveYRangeDegree: 40
+    VerticalUp:
+      CurveXRangeDegree: 90
+      CurveYRangeDegree: 35
+  FirstPerson:
+    Renderers:
+    - Renderer: Body
+      FirstPersonFlag: 0
+    - Renderer: Hair
+      FirstPersonFlag: 0
+    - Renderer: Head
+      FirstPersonFlag: 0
+    - Renderer: Shirt
+      FirstPersonFlag: 0
+    - Renderer: Skirt
+      FirstPersonFlag: 0

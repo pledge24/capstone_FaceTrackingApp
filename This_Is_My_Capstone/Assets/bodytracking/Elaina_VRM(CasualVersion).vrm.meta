@@ -2,7 +2,222 @@ fileFormatVersion: 2
 guid: a8c0f1deadce94b9d84611c125e88ea2
 ScriptedImporter:
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UniVRM10:VRM10Expression
+      assembly: VRM10
+      name: Wink_L
+    second: {fileID: 11400000, guid: d522017f0dca44822a15f91846098127, type: 2}
+  - first:
+      type: UniVRM10:VRM10Expression
+      assembly: VRM10
+      name: Wink_R
+    second: {fileID: 11400000, guid: 68c1749e047be4029b49f6456e3c1073, type: 2}
+  - first:
+      type: UniVRM10:VRM10Expression
+      assembly: VRM10
+      name: aa
+    second: {fileID: 11400000, guid: f634cbe418c7c4b7aa1cff7a1cfc557f, type: 2}
+  - first:
+      type: UniVRM10:VRM10Expression
+      assembly: VRM10
+      name: angry
+    second: {fileID: 11400000, guid: 68f95d0a4358c46d7bcb9642dc5909bd, type: 2}
+  - first:
+      type: UniVRM10:VRM10Expression
+      assembly: VRM10
+      name: blink
+    second: {fileID: 11400000, guid: e986e3e91ba964c23ae49d1cf41b26ad, type: 2}
+  - first:
+      type: UniVRM10:VRM10Expression
+      assembly: VRM10
+      name: blinkLeft
+    second: {fileID: 11400000, guid: 826a809c2559c4490a24424a6797b71c, type: 2}
+  - first:
+      type: UniVRM10:VRM10Expression
+      assembly: VRM10
+      name: blinkRight
+    second: {fileID: 11400000, guid: d182970de5ff04de5b7104ba285e2e60, type: 2}
+  - first:
+      type: UniVRM10:VRM10Expression
+      assembly: VRM10
+      name: ee
+    second: {fileID: 11400000, guid: 9d32e040788d641bcbaa0e36855a7992, type: 2}
+  - first:
+      type: UniVRM10:VRM10Expression
+      assembly: VRM10
+      name: happy
+    second: {fileID: 11400000, guid: 0639333942ccf402a8ab68e1e4aa354d, type: 2}
+  - first:
+      type: UniVRM10:VRM10Expression
+      assembly: VRM10
+      name: ih
+    second: {fileID: 11400000, guid: 0610b706d2038497b97fc614a81bb030, type: 2}
+  - first:
+      type: UniVRM10:VRM10Expression
+      assembly: VRM10
+      name: lookDown
+    second: {fileID: 11400000, guid: 825c126bd469743ac9b37998164fcdff, type: 2}
+  - first:
+      type: UniVRM10:VRM10Expression
+      assembly: VRM10
+      name: lookLeft
+    second: {fileID: 11400000, guid: 4e918f6200b9c462bb82a6a8c9d90b2b, type: 2}
+  - first:
+      type: UniVRM10:VRM10Expression
+      assembly: VRM10
+      name: lookRight
+    second: {fileID: 11400000, guid: 208f38770764c4d41bc84dbbf22e82a6, type: 2}
+  - first:
+      type: UniVRM10:VRM10Expression
+      assembly: VRM10
+      name: lookUp
+    second: {fileID: 11400000, guid: 6e49b6d790e7d4ae0999d2eca7b2ff2f, type: 2}
+  - first:
+      type: UniVRM10:VRM10Expression
+      assembly: VRM10
+      name: neutral
+    second: {fileID: 11400000, guid: 0c9aba5efd2a24355a3a870eacdedc64, type: 2}
+  - first:
+      type: UniVRM10:VRM10Expression
+      assembly: VRM10
+      name: oh
+    second: {fileID: 11400000, guid: 59bc347cb36dd4fbda3a5dd6eee6c94b, type: 2}
+  - first:
+      type: UniVRM10:VRM10Expression
+      assembly: VRM10
+      name: ou
+    second: {fileID: 11400000, guid: d4e940a8fa96b485b8accda12c9d0802, type: 2}
+  - first:
+      type: UniVRM10:VRM10Expression
+      assembly: VRM10
+      name: relaxed
+    second: {fileID: 11400000, guid: a9a229585c0ba4b93ab895ab42e56e98, type: 2}
+  - first:
+      type: UniVRM10:VRM10Expression
+      assembly: VRM10
+      name: sad
+    second: {fileID: 11400000, guid: 89e4c933901b74e7dab6d4ed6a18683c, type: 2}
+  - first:
+      type: UniVRM10:VRM10Expression
+      assembly: VRM10
+      name: surprised
+    second: {fileID: 11400000, guid: d67767dc3ae3147edaf60b1f0056b746, type: 2}
+  - first:
+      type: UniVRM10:VRM10Object
+      assembly: VRM10
+      name: _vrm1_
+    second: {fileID: 11400000, guid: ce98292842b7348eaabe9d81a356860d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Body
+    second: {fileID: 2100000, guid: c4a6768a0c8d1461ba6531c9d1df1cba, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Brooch
+    second: {fileID: 2100000, guid: 4fd6205803f7b49d0bd2826067b6a17f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Coat
+    second: {fileID: 2100000, guid: be7bd1e9acc5b43eb9a2d772f41f3aa9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dress
+    second: {fileID: 2100000, guid: aed4928d6a1e6406c8ace735ef1ef55f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Face
+    second: {fileID: 2100000, guid: dfa92b081d8314e5dba31964d02647a5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Hair
+    second: {fileID: 2100000, guid: 3bf10fa1dc5e0473090cd47e2fc8c6d9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Outline_Coth
+    second: {fileID: 2100000, guid: 00832dff11f5e4f3e875fc639ccfe6f7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Outline_Hair
+    second: {fileID: 2100000, guid: e2c24d140ead74cbeac6d8da6a192629, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Outline_Skin
+    second: {fileID: 2100000, guid: 02b0ca1b7af584f32b5a1c957ed99be8, type: 2}
+  - first:
+      type: UnityEngine:Texture
+      assembly: UnityEngine.CoreModule
+      name: Body
+    second: {fileID: 2800000, guid: d9e81eede08994b0688d5ca8f9406bad, type: 3}
+  - first:
+      type: UnityEngine:Texture
+      assembly: UnityEngine.CoreModule
+      name: Body_SSS
+    second: {fileID: 2800000, guid: 47a6e1b413f784672944c6115afd19aa, type: 3}
+  - first:
+      type: UnityEngine:Texture
+      assembly: UnityEngine.CoreModule
+      name: Brooch
+    second: {fileID: 2800000, guid: cdb985afac626421c88ccb25a1840df5, type: 3}
+  - first:
+      type: UnityEngine:Texture
+      assembly: UnityEngine.CoreModule
+      name: Brooch_SSS
+    second: {fileID: 2800000, guid: 6e3165ebb2369454c8737dcb0b307c8a, type: 3}
+  - first:
+      type: UnityEngine:Texture
+      assembly: UnityEngine.CoreModule
+      name: Coat
+    second: {fileID: 2800000, guid: 3a4e5830b26b84563aaba44b92e46d04, type: 3}
+  - first:
+      type: UnityEngine:Texture
+      assembly: UnityEngine.CoreModule
+      name: Coat_SSS
+    second: {fileID: 2800000, guid: 43d30de0d3edc40e4aa6c9b2d5ef4c24, type: 3}
+  - first:
+      type: UnityEngine:Texture
+      assembly: UnityEngine.CoreModule
+      name: Dress
+    second: {fileID: 2800000, guid: f2be87db8ef8c43acb6d3c4d6064d954, type: 3}
+  - first:
+      type: UnityEngine:Texture
+      assembly: UnityEngine.CoreModule
+      name: Dress_SSS
+    second: {fileID: 2800000, guid: 056afe5372513413c8ddad46ca7cf1f9, type: 3}
+  - first:
+      type: UnityEngine:Texture
+      assembly: UnityEngine.CoreModule
+      name: Face
+    second: {fileID: 2800000, guid: ea8a112d42f7d4850b74cd25fa22824e, type: 3}
+  - first:
+      type: UnityEngine:Texture
+      assembly: UnityEngine.CoreModule
+      name: Face_SSS
+    second: {fileID: 2800000, guid: 30ecc2ce67f9b43239628917a12167ba, type: 3}
+  - first:
+      type: UnityEngine:Texture
+      assembly: UnityEngine.CoreModule
+      name: Hair
+    second: {fileID: 2800000, guid: e87b3ef439aa74a8c8bfd007e9fc477b, type: 3}
+  - first:
+      type: UnityEngine:Texture
+      assembly: UnityEngine.CoreModule
+      name: Hair_SSS
+    second: {fileID: 2800000, guid: 8057203873a4d4c1bbd0f25121a88ed3, type: 3}
+  - first:
+      type: UnityEngine:Texture
+      assembly: UnityEngine.CoreModule
+      name: thumbnail__VRM10
+    second: {fileID: 2800000, guid: 42b2f7c0dc409420397f3b7bc0edad4d, type: 3}
   serializedVersion: 2
   userData: 
   assetBundleName: 

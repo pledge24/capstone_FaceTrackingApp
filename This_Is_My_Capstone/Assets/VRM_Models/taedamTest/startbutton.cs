@@ -5,7 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class startbutton : MonoBehaviour
 {
-	public void SceneChange(){
+    public void SceneChange(){
 		SceneManager.LoadScene("BodyTestV5");
 	}
+
+    public void SceneChangeBack()
+    {
+        SceneManager.LoadScene(0);
+    }
 }
